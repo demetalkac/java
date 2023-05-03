@@ -20,6 +20,9 @@ public class NestedIfStatement01 {
              otherwise the output will be "Invalid Password"
              For example; zoe ==> Valid password    -     Zoe ==> Invalid    -    john ==> Invalid
 
+     NOT: Java "nested" kodları calıstırırken cok zaman harcar, "Time Conmplexity" denir.
+          Bu nedenle mümkün ise "nested" kod yazmamaya calısırız.
+
    */
 
 

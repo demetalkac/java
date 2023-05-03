@@ -1,0 +1,144 @@
+*       How do we get the data from the user?
+       -1.Adım: Scanner classından object olustur
+       -2. Adım: Kullanıcıya ne yapacagını söyle
+       -3.Adım: Kullanıcıdan alınan datayı bir variable’ın icine koyun
+
+       1.Step: Create an "object" from "Scanner Class".
+
+       Class Name     Object Name    Assignment Operator    new Keyword     Constructor==>Class Name +()
+        Scanner        input             =                    new               Scanner(System.in);
+                       scan
+
+
+
+1-)         Wrapper classes are "Non-Primitive data types.(Primitive data typeları non-primitive'e cevirir)
+
+            Primitive      Wrapper Class
+            byte             Byte
+            short           Short
+            int            Integer
+            long            Long
+            float          Float
+            double        Double
+            boolean       Boolean
+            char          Character
+
+            int i= 12; //there is no method, just value
+            Integer k= 12; //there are many methods in the coding
+
+            char c= 'A';
+            Character d= 'A';
+
+* Autoboxing: To convert "primitive data" to "wrapper class" data type.
+
+            byte b= 23; //close to add any actions/methods
+            Byte wb= b;  //is open to addition of the methods
+
+* Unboxing: To convert "wrapper class" to its "primitive data"
+
+            Short ws= 34; //open to be added the methods
+            short s= ws;   //container is closed to add methods
+
+* How to get the minimum and maximum values of numeric types in java
+
+            System.out.println(Integer.MAX_VALUE); //
+
+2-)  SWİTCH
+   Note: "break" keyword is used in "switch" statement to stop next case executions.
+         "break" keyword takes us to the outside the switch statement
+
+  note: Inside the switch parenthesis, you can use just, "int", "byte", short ,char String data types
+  note: boolean, long, float, double cannot be used in switch statement
+
+
+3)            TERNARY
+  "ternary" does the same with "if else" by using more simple syntax
+
+  ÖRNEK:If an integer is positive print "The integer is positive" otherwise print "The integer is not positive"
+         int i = 12;
+          Condition     ?       Will be selected for true condition      :    Will be selected for false condition
+          String result = i>0         ?           "The integer is positive"            :        "The integer is not positive";
+          System.out.println(result);
+
+NOT: Ternary farklı data tiplerinde sonuc return ederse sonucun data tip,ini "Object" yapınız.
+  örn:  int a = 12, b = -10;
+        Object res = a>0 && b>0 ? a*b : "I do not how to multiply";
+        System.out.println(res);
+
+ NestedTernary: int year= 1600;
+                String isLeap = year%100==0 ? (year%400==0 ? "Leap" : "Not leap") : (year%4==0 ? "Leap" : "Not leap"  );
+                System.out.println(isLeap);
+
+
+4-)  SEMBOLLER
+
+*    Note:  % (modulus operator) ==> gives the remainder of a division operation.
+              " % " is called "modulus"  operator
+
+*     Note: "!" in java means "not"
+             !true ==> false   !false ==> true  !!true ==>true
+               "!=" means "does not equal to"
+
+*    Note: In java "==" means equals.
+      Note:  in java "=" is assignment operator.
+      Note: To compare Strings use "equals()" , do not use "==
+
+
+
+*      "||" this sign means "OR" operator in Java.
+      equalsIgnoreCase()==>java does not care about the upper or lower case
+
+             Note: " OR" operator in java ==> ||
+                    "||" can be used just with booleans
+
+              To get false from  "||" operator everything should be false.
+              just a single "true" makes the result true.==>|| is optimistic
+              To get "false" from || every condition should be false
+              true || true ==> true
+              true || false ==> true
+              false || true ==> true
+              false || false ==> false
+
+*         && (and) islemi sadece "boolean" ile kullanılır.
+             && (and) islemi mükemmelliyetcidir, true sonucunu alabilmek icin hersey true olmalıdır.
+             Bi tane false varsa sonuc false olur.
+
+            true && true ==> true
+            true && false ==> false
+            false && true ==> false
+            false && false ==> false
+
+NOT: "and" ve "or" bir arada kullanınca karısıklık olmaması icin parantez ile kullanmak daha iyidir:
+     (e>0 && f>0) || (e<0 && f<0)
+
+
+5)  MATEMATİKSEL İSLEMLER:
+
+  * absolute(mutlak deger): //For positive numbers and zero absolute value is the same with the number(sayı pozitif ve  sıfır ise mutlak deger kendileridr)
+                        //For negative numbers to find absolute value multiply the number by -1 (negatif sayıların mutlak degeri -1 ile carpılmıs halidir)
+
+  * n =Math.abs(n); //abs() methodu negatif sayıyı pozitif sayıya cevirir. Ve "Math" classından cagılır.
+
+  * a rectangle area==> width*length= area
+
+  * a rectangular prism then calculate the total area:formula=  2*w*l +  2*h*l  +  2*w*h
+
+  * '%': firstNum * secondNum/100
+
+6-)NOT: char variable'ları matematiksel islemlerde kullanırsanız, Java onların ASCII degerlerini kullanır
+
+   not: Java'da "+" sembolunun 2 anlamı var: 1- Toplama islemi    2- Birlestirme islemi(concatenation)
+
+   next() : Kullanıcıdan String olarak girilen datayı(İLK KELİMEYİ) alır.
+   nextLine(): Kullanıcıdan String olarak girilen dataları(STRİNGİN TAMAMINI) alır.
+
+   toLowerCase() methodu bir String deki tum karakterleri kücük harfe cevirir.
+
+   length() :Kac tane karakter oldugunu verir
+
+   charAt(0) : ilk karakteri almada kullanırız
+
+
+
+7-)
+

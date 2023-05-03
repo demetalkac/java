@@ -25,6 +25,9 @@ public class StringManipulations01 {
             6)length() method returns the number of characters in a String
                "Learn Java earn money".length(); ==> 21
                length() method returns integer
+            7)split() method: bu method "Array" return eder.
+             Bir String'de istedigimiz character'den parcalamaya yarar.
+
          */
 
 

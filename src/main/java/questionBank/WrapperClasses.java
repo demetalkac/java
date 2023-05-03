@@ -21,6 +21,12 @@ public class WrapperClasses {
         object, instead of a primitive type.
         Of course, another obvious difference is that valueOf() is an instance method whereas parseByte()
         is a static method.
+
+
+       parseByte(), primitive tamsayı türünü (int) döndürürken, valueOf(), java.lang.Integer'ı döndürür;
+       tamsayının nesne temsilcisidir. Bir Tamsayı isteyebileceğiniz durumlar vardır.
+       nesne, ilkel bir tür yerine.
+      Tabii ki, başka bir bariz fark, valueOf()'un bir örnek yöntem, parseByte()'nin ise statik bir yöntem olmasıdır.
          */
 
 

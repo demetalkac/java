@@ -18,7 +18,7 @@ public class Variable {
         System.out.println("Multiplication:"+ x*y*z);  //Multiplication:2494.44
 
         //3
-        // Type a code to find simple interest.
+        // Type a code to find simple interest. rate:oran
         //Note: Simple interest formula = principal * rate * numberOfYear / 100
 
         int principal= 10000, rate =6, numberOfYear=3;

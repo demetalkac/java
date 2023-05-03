@@ -39,5 +39,38 @@ public class StringManipulations04 {
             System.out.println("Invalid");
         }
 
+
+        //Example 3: Bir password'un gecerli olup olmadıgını asagıdaki kurallara göre test eden kodu yazınız
+        //         i)Space haric en az sekiz karakter olmalı
+        //        ii)En az 1 sembol icermeli
+        //       iii)En az 1 rakam icermeli
+        //        iv)En az 1 büyük harf icermeli
+        //         v)En az 1 KüCük harf icermeli
+
+        String pwd = "B89C? Kn!";
+
+//         i)Space haric en az sekiz karakter olmalı
+
+      boolean first =  pwd.replace(" ", "").length()>7;
+//        ii)En az 1 sembol icermeli
+      boolean second = pwd.replaceAll("[0-9a-zA-Z ]","").length()>8;
+
+//       iii)En az 1 rakam icermeli
+      boolean third = pwd.replaceAll("[^0-9]","").length()>0;
+//        iv)En az 1 büyük harf icermeli
+      boolean fourth =pwd.replaceAll("[^A-Z]","").length()>0;
+//         v)En az 1 KüCük harf icermeli
+      boolean fifth = pwd.replaceAll("[^a-z]","").length()>0;
+
+      boolean gecerliPwd = first && second && third && fourth && fifth;
+
+      if (gecerliPwd){
+          System.out.println("Pasword'unuz gecerli");
+      }else {
+          System.out.println("Pasword'unuz gecersiz");
+      }
+
+
     }
+
 }

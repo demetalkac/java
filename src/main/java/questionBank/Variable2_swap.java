@@ -2,7 +2,7 @@ package questionBank;
 
 import java.util.Scanner;
 
-public class Variable2 {
+public class Variable2_swap {
     public static void main(String[] args) {
 
         //7.Type a code to swap two integers.

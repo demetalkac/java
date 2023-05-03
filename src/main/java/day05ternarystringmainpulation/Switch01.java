@@ -12,7 +12,7 @@ public class Switch01 {
      */
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the country name");
-        String country = input.nextLine().toLowerCase();
+        String country = input.nextLine().toLowerCase(); //toLowerCase() methodu bir String deki tum karakterleri kücük harfe cevirir.
 
         switch(country){ //note: Inside the switch parenthesis, you can use just, "int", "byte", short ,char String data types
                          //note: boolean, long, float, double cannot be used in switch statement

@@ -11,9 +11,36 @@ public class IfStatement01 {
             d) "Fall" for September, October, November
             e) "Invalid month name" for all the others
       */
+   String ay = "April";
 
-       String mName= "December";
-       mName= mName.toLowerCase();
+   boolean winter = ay.equalsIgnoreCase("December") || ay.equalsIgnoreCase("January") || ay.equalsIgnoreCase("February");
+
+   boolean spring = ay.equalsIgnoreCase("March") || ay.equalsIgnoreCase("April") || ay.equalsIgnoreCase("May");
+
+   boolean summer =ay.equalsIgnoreCase("June") || ay.equalsIgnoreCase("July") || ay.equalsIgnoreCase("August");
+
+   boolean fall = ay.equalsIgnoreCase("September") || ay.equalsIgnoreCase("October") || ay.equalsIgnoreCase("November");
+
+
+        if (winter){
+            System.out.println("Winter");
+
+        } else if (spring) {
+            System.out.println("Spring");
+
+        }else if (summer) {
+            System.out.println("Summer");
+
+        }else if (fall) {
+            System.out.println("Fall");
+
+        }else {
+            System.out.println("Invalid month name");
+        }
+
+        /*
+        String mName= "March";
+   //    mName= mName.toLowerCase();
 
        if (mName.equals("december") || mName.equals("January") || mName.equals("February")){
            System.out.println("Winter");
@@ -27,6 +54,8 @@ public class IfStatement01 {
            System.out.println("Invalid month name");
        }
 
+
+         */
        /*
            2) Type code to print
             a) "Valid Password" if the password has at least 8 characters different from space

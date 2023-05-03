@@ -26,11 +26,14 @@ public class NestedTernary01 {
 
         String pwd = "ia1b3cXyz";  //"K123" 2.part
 
-        String isValid = pwd.length()>8 ? (pwd.charAt(0)=='i' ? "Valid" : "Invalid" ) : (pwd.charAt(0)=='K' ? "Valid" : "Invalid" );
+//     String isValid = pwd.length()>8 ? (pwd.charAt(0)=='i' ? "Valid" : "Invalid" ) : (pwd.charAt(0)=='K' ? "Valid" : "Invalid" );
+
+        char ilkHarf = pwd.charAt(0);
+        String isValid = pwd.length()>8 ? (ilkHarf=='i' ? "Valid" : "Invalid" ) : (ilkHarf=='K' ? "Valid" : "Invalid" );
 
         System.out.println(isValid);
 
-
+// length() :Kac tane karakter oldugunu verir
 
     }
 }

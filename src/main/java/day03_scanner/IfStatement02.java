@@ -42,16 +42,57 @@ public class IfStatement02 {
         if(dayName.equals("Sunday")){
             System.out.println("Weekend day");
         }
+  /*
+  not: if() ile hepsini yapmaktansa else if() yapmak daha uygun
+        if(dayName.equals("Monday")){
+            System.out.println("Weekday");
 
+        }else if(dayName.equals("Tuesday")){
+            System.out.println("Weekday");
+
+        }else if(dayName.equals("Wednesday")){
+            System.out.println("Weekday");
+
+        }else if(dayName.equals("Thursday")){
+            System.out.println("Weekday");
+
+        }else if(dayName.equals("Friday")){
+            System.out.println("Weekday");
+
+        }else if(dayName.equals("Saturday")){
+           System.out.println("Weekend day");
+        }else if(dayName.equals("Sunday")){
+                System.out.println("Weekend day");
+        }else {
+            System.out.println("Invalid day name");
+        }
+
+   */
 
         //2.way: I will use if else statement.  ==> with or "||" this sign means "OR" operator in Java.
         // equalsIgnoreCase()==>java does not care about the upper or lower case
 
+        if (dayName.equalsIgnoreCase("Monday") || dayName.equalsIgnoreCase("Tuesday")
+                || dayName.equalsIgnoreCase("Wednesday") || dayName.equalsIgnoreCase("Thursday")
+                || dayName.equalsIgnoreCase("Friday")){
+            System.out.println("Weekday");
+
+        }else if (dayName.equalsIgnoreCase("Saturday") || dayName.equalsIgnoreCase("Sunday")){
+            System.out.println("Weekend day");
+        }else{
+
+            System.out.println("Invalid day name");
+
+        }
+
+
+        //3.way: I will use if else statement.
         boolean isWeekDay = dayName.equalsIgnoreCase("Monday") || dayName.equalsIgnoreCase("Tuesday")
                 || dayName.equalsIgnoreCase("Wednesday") || dayName.equalsIgnoreCase("Thursday")
                 || dayName.equalsIgnoreCase("Friday");
 
-        boolean isWeekendDay = dayName.equalsIgnoreCase("Saturday") || dayName.equalsIgnoreCase("Sunday");
+        boolean isWeekendDay = dayName.equalsIgnoreCase("Saturday")
+                || dayName.equalsIgnoreCase("Sunday");
 
           if(isWeekDay){
               System.out.println("Weekday");
@@ -75,6 +116,18 @@ public class IfStatement02 {
         true || false ==> true
         false || true ==> true
         false || false ==> false
+         */
+
+
+        /*
+        && (and) islemi sadece "boolean" ile kullanılır.
+         && (and) islemi mükemmelliyetcidir, true sonucunu alabilmek icin hersey true olmalıdır.
+         Bi tane false varsa sonuc false olur.
+
+        true && true ==> true
+        true && false ==> false
+        false && true ==> false
+        false && false ==> false
          */
 
 

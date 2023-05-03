@@ -28,9 +28,9 @@ public class Ternary01 {
         double min = d>e ? e : d;//":" means "else"
         System.out.println(min);
 
-        //Type code to calculate the absolute value of a number
-        //For positive numbers and zero absolute value is the same with the number
-        //For negative numbers to find absolute value multiply the number by -1
+        //Type code to calculate the absolute(mutlak deger) value of a number
+        //For positive numbers and zero absolute value is the same with the number(sayı pozitif ve  sıfır ise mutlak deger kendileridr)
+        //For negative numbers to find absolute value multiply the number by -1 (negatif sayıların mutlak degeri -1 ile carpılmıs halidir)
 
         double f = 0;
         double abs = f>=0 ? f : -1*f;

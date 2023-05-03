@@ -19,12 +19,9 @@ public class DataTypes {
         //8.
 
         String s= "Tom Hanks";
-        System.out.println(s.equals("tom hanks"));
+        System.out.println(s.equals("tom hanks")); //false
 
-
-
-
-
+//*******************************
 
     }
 }

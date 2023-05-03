@@ -19,8 +19,24 @@ public class IfStatement01 {
             System.out.println("Non-negative");
         }
 
+        //Example 2:Verilen character büyük harf ise ekrana "Büyük harf" yazdırın
+        char ch= 'A';
 
-        //Example 2: Type code to print "Divisible by 5" if the number can be divided by 5, otherwise print
+        if (ch>='A' && ch<='Z'){
+            System.out.println("Büyük harf");
+        }
+
+        //Example 3:Verilen bir sayı üc basamaklı ise ekrana "Uc basamaklı" yazdırın
+        int n= 113;
+        n =Math.abs(n); //abs() methodu negatif sayıyı pozitif sayıya cevirir. Ve "Math" classından cagılır.
+
+        if (n>99 && n<1000){
+            System.out.println("Uc basamaklı");
+        }
+
+
+
+        //Example 4: Type code to print "Divisible by 5" if the number can be divided by 5, otherwise print
         // "Not divisible by if 5" if the number cannot be divided by 5.
 
         //Note: In java "==" means equals.

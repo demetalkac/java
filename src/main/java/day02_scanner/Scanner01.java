@@ -6,6 +6,13 @@ public class Scanner01 {
     public static void main(String[] args) {
      /*
 
+    System.in => Kullanıcıdan gelen data yı sistemin icine alabilmek icin
+    Kullanıcıdan data almak icin yapılması gerekenler:
+    -1.Adım: Scanner classından object olustur
+    -2. Adım: Kullanıcıya ne yapacagını söyle
+    -3.Adım: Kullanıcıdan alınan datayı bir variable’ın icine koyun
+     next() : Kullanıcıdan String olarak girilen datayı(İLK KELİMEYİ) alır.
+     nextLine(): Kullanıcıdan String olarak girilen dataları(STRİNGİN TAMAMINI) alır.
        Scanner class is used to get the data fromm user into our codes.
        Scanners are used to interact with the users.
 
@@ -51,11 +58,6 @@ public class Scanner01 {
 
 
     }
-
-
-
-
-
 
 
 
