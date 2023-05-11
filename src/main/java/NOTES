@@ -1,3 +1,15 @@
+INTERVIEW
+-package day03_scanner;- IfStatement02 = Example 1: Type code to print "Weekday" for the weekday names, "weekend day" for the weekend days
+                                                Monday - Friday ==> Weekday       Saturday, sunday ==> Weekend day
+
+-package day05ternarystringmainpulation; ->public class NestedTernary01 { "leap year"
+
+-  package day08stringmanipulationloops; -> public class StringManipulations01 { "Example 2: Swap the integers"
+
+
+
+
+
 *       How do we get the data from the user?
        -1.Adım: Scanner classından object olustur
        -2. Adım: Kullanıcıya ne yapacagını söyle

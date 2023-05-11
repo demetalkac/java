@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Loop02 {
     public static void main(String[] args) {
 
-        //Example 1: Type code to pint characters "m" in a String.
+        //Example 1: Type code to pint characters "m" in a String. (bir string deki "m" karakteri haric tüm karakterleri yazdırın)
         // For ex: Andromeda ==> Androeda
 
         String str= "Mama";
@@ -27,18 +27,28 @@ public class Loop02 {
 
             char ch= str.charAt(i);
 
-            if( ch== 'm'){
-                continue;
+            if( ch== 'm'){  //eger "m" ch'e esit ise devam et, bossverr m yi gec, continue;
+                continue;   //LOOPUN İCİNDE BAZI DEGERLER İCİN LOOPUN CALISMASINI İSTEMEZSEK  "continue" KULLANMALIYIZ.
             }
             System.out.print(ch);
         }
 
-        //If you want to skip any specific value in a loop then use continue keyword.
+  // NOT: If you want to skip any specific value in a loop then use continue keyword.
 
         System.out.println();
 
+//Example 4: 1'DEN 100'e kadar 6 ile bölünebilenler haricindekileri ekrana yazdır.
+        for (int i=1;  i<101; i++){
+            if (i%6==0){
+                continue;
+            }
+            System.out.println(i + " ");
+        }
 
-        //Example 2: Type code to print characters before "m" in a String
+
+
+
+        //Example 2: Type code to print characters before "m" in a String( "m"den önceki karakterleri yazdır)
         // For ex: Luxembourg ==> Luxe
 
         String city= "Luxembourg";
@@ -59,6 +69,9 @@ public class Loop02 {
          // break : stops the loop once the condition is valid and leaves the other values without processing.
 
         System.out.println();
+
+
+
 
         //Example 3: Type code to find the sum of the unique digits in an integer.
         //For ex: 1232 ==> 1+3=4

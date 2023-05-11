@@ -21,6 +21,8 @@ public class NestedLoop01 {
                           Day: 2
                           Day: 3
                           ....
+
+         not: nested looplarda önce en dıstaki looptan baslanır yazmaya
          */
 
         for (int i=1;  i<5; i++){

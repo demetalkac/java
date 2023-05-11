@@ -2,7 +2,7 @@ package questionss;
 
 import java.util.Scanner;
 
-public class InterviewQuestion01 {
+public class InterviewQuestion01Reverse {
 
     //Write a Java Program to reverse a string
 
@@ -18,6 +18,7 @@ public class InterviewQuestion01 {
         System.out.println(strB.reverse());
 
         String revStr = "";
+
         //2.Way: By using String Class
         for(int i=str.length()-1; i>=0; i--) {
             revStr = revStr + str.charAt(i);
