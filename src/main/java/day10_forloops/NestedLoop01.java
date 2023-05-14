@@ -54,9 +54,35 @@ public class NestedLoop01 {
             for (int k=2; k<=column; k++){
                 System.out.print("*");
             }
-            System.out.println();
+            System.out.println(); // her döngüde bi alt satıra gecmesi icin
         }
         System.out.println();
+
+
+    /*
+            Scanner input= new Scanner(System.in);
+        System.out.println("Enter the number of the rows");
+        int row= input.nextInt();
+
+        System.out.println("Enter the number of the columns");
+        int column= input.nextInt();
+
+        System.out.println("karakter seciniz");
+        char ch = input.next().charAt(0);
+
+        for (int i=1;  i<=row; i++){
+
+            for (int k=2; k<=column; k++){
+                System.out.print(ch);
+            }
+            System.out.println(); // her döngüde bi alt satıra gecmesi icin
+        }
+
+
+     */
+
+
+
 
 
         /*
@@ -73,8 +99,8 @@ public class NestedLoop01 {
 
         for (int i=1;  i<=numOfRows; i++ ){
 
-            for (int k=1; k<=i; k++){
-                System.out.print(k);
+            for (int k=1; k<=i; k++){ // 2.loop da k satır sayısı kadar rakam yazar, yani k i'nin aldıgı satır rakamı ne ise o kadar yana yazacak
+                System.out.print(k + " ");
             }
             System.out.println();
         }

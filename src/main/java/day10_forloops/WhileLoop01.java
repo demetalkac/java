@@ -14,9 +14,9 @@ public class WhileLoop01 {
 
         System.out.println();
         //2.Way:
-        int i= 3;
+        int i= 3;   // baslangıc degeri dısa yazılır
 
-        while (i<7){
+        while (i<7){   //sart kısmını parantez icine yazarız
             System.out.print(i + " ");
             i++;
         }
@@ -45,7 +45,7 @@ public class WhileLoop01 {
         System.out.println(sum);
 
         System.out.println();
-        //4.Example: Type java code by using while loop,
+        //4.Example: Type java code by using while loop,  //verilen tam sayının rakamları toplamını ekrrana yazdır.
         //           Write a program that prompts the user to input an integer.
         //           It should then find the sum of the digits of that number.
         //           123 ==> 1+2+3 = 6
