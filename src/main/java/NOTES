@@ -133,7 +133,17 @@ NOT: "and" ve "or" bir arada kullanınca karısıklık olmaması icin parantez i
 
   * a rectangle area==> width*length= area
 
+  * diktörtgenin alanı => kısaKenar*uzunKenar
+
+  * diktörtgenin cevresi => 2*kısaKenar + 2*uzunKenar
+
   * a rectangular prism then calculate the total area:formula=  2*w*l +  2*h*l  +  2*w*h
+
+  * dairenin alanı => 3,14*r*r  veya  (314*r*r/100) seklinde de yazabiliriz.  --- r: yarıcap
+
+  *ücgenin cevre uzunlugu => a+b+c
+
+  *cemberin cevresi => 2*3,24*r veya  2*314*r/100
 
   * '%': firstNum * secondNum/100
 
