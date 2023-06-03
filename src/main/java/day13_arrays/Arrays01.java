@@ -12,11 +12,14 @@ public class Arrays01 {
         Sometimes, we can need to store multiple in a single container (Arrays).
         To be able to store multiple value Java created a new structure,  its name is "Arrays"
 
+        -Aynı konteyner icine benzer(coklu) data(hepsi integer veya String gibi) dopolayabildigimiz yapılara ARRAY denir.
+        - Arraylerin icine "primitive data type"lar ve "reference"(adresler)ler konulabilir.
+
         Note: Arrays are to store multiple data in one single data type.
               You cannot store different data types in one Arrays.
          */
 
-       String names[] = new String[5];
+       String names[] = new String[5]; //eleman sayısını söylemeliyiz new String[5];
         System.out.println(Arrays.toString(names)); //[null, null, null, null, null]
 
         names[1] ="Tom";
