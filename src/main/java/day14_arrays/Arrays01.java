@@ -6,7 +6,7 @@ public class Arrays01 {
 
 
     public static void main(String[] args) {
-        // Example 1: [0, 2, 3, 0, 12, 0] put the zeros to the end
+        //**INTERVİEW** Example 1: [0, 2, 3, 0, 12, 0] put the zeros to the end
         // [2, 3, 12, 0, 0, 0]
 
         int arr[] = {0, 2, 3, 0, 12, 0};
@@ -15,11 +15,11 @@ public class Arrays01 {
         int idx=0;
 
 
-        for (int i =0; i<arr.length; i++){
+        for (int i =0; i<arr.length; i++){  //loop'u ilk olusturdugumuz array icin olusturuyoruz. ilk arrayden alıp 2. arraye tasıyacak
 
             if (arr[i]!=0){
                 brr[idx] = arr[i];
-                idx++;
+                idx++;  //indexi artırıyoruz
             }
         }
         System.out.println(Arrays.toString(arr)); // [0, 2, 3, 0, 12, 0]

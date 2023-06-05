@@ -75,7 +75,7 @@ public class Arrays02 {
 
         for (String w : student2){
 
-            System.out.println(w);
+            System.out.println(w + " ");
 
             if (w.equals("Tom")){
                 break;
