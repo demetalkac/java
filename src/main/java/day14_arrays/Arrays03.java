@@ -35,5 +35,29 @@ public class Arrays03 {
         // [ali, eder, yasın, null, null, null,..] Array oldugu icin girdigimiz isimler gözüküyor girmedigimiz
         //  kısmı null olarak gözükür. Listlerde null lar da gözükmez, sadece grilen data gözükür bos olan kısım null olarak gözükmez.
 
+
+//EXAMPLE 2: Bir Array'in icinde herhangi bir elementin olup olmadıgıni kontrol eden ve kac kere tekrarlandıdını gösteren kodu yazınız
+//   [2, 1, 2, -3, 2] kullanıcı 2'i sordu ==> 2 elemanı var ve 3 kere tekrarlandı.
+//                  kullanıcı 6'i sordu ==> 6 elemanı array de yok.
+
+        int arr[] = {2, 1, 2, -3, 2};
+
+        int element = 2;
+
+        int counter = 0;  //flag
+
+        for (int w : arr){
+            if (w==element){
+                counter++;
+            }
+        }
+
+        if (counter>0){
+            System.out.println(element + " array de " + counter + " defa var");
+        }else {
+            System.out.println(element + " array de yok");
+        }
+
+
     }
 }

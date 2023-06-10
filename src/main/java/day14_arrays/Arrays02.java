@@ -38,7 +38,7 @@ public class Arrays02 {
 
         //Example 3: Count the number of words starts with "a" in the String
 
-        int counter=0; //flag
+        int counter=0; //flag : bazı durumların var olup olmadıgını kontrol etmek icin "flag" kullanılır.
 
         for (String w: arr){
             if (w.startsWith("a")  || w.startsWith("A")){
@@ -52,10 +52,14 @@ public class Arrays02 {
        //From here on from the lesson of Suleyman teacher
         //Example 4: Type code to find the longest word in the sentence
         String s = "I want to go to university to learn more";
+// NOT: Eger cümlede noktalama isaretleri var ise önce onlardan kurtulmalıyız, sonra kelimeleri ayırmalıyız.
+//        s.replaceAll("\\p{Punct}", "");
 
-        String words[] = s.split(" ");
+        String words[] = s.split(" "); // split ile ayırdıktan sonra bircok element olacagı icin Array konteynerina koyuyoruz.
         System.out.println(Arrays.toString(words));//[I, want, to, go, to, university, to, learn, more]
-        Arrays.sort(words, Comparator.comparingInt(String::length));
+        Arrays.sort(words, Comparator.comparingInt(String::length));  //"Comparator"  2 parametre ile calısır.
+//                                                              sort() unu "Comparator" olanı seciyoruz yoksa sort alfabetik olarak sıralar
+//                                                             Comparator. karsılastır demek, (String::length) string icinde length'e gire karsılastır ve sırala.
         System.out.println(Arrays.toString(words));//[I, to, go, to, to, want, more, learn, university]
         System.out.println(words[words.length-1]);//university
 
