@@ -37,17 +37,18 @@ public class MultiDimensionalArrays01 {
         System.out.println(brr[2][1]); //Christ
         System.out.println(brr[0][0]); //Tom
 
+        System.out.println("00000000000000000000000000000000");
         //How to print a specific element from outer array
-        System.out.println(Arrays.toString(brr[2])); //Tom
+        System.out.println(Arrays.toString(brr[2])); //[Carl, Christ, Ali] ==> multidimensional array icindeki bir array'ı yazdırmak istersek Arrays.toString() kullanımalıyz.
 
-
+        
         //Example type code to find the number of elements in a multidimensional array
         String crr[][]={ {"Tom","Jim"},{"Angie"},{"Carl", "Christ","Ali"} };
 
         int sum = 0;
 
 
-        for (String[] w : crr){
+        for (String[] w : crr){      //multidimensional array de foreach yazarken icine data type ve array isaretini koymalıyız: String[]
             sum = sum + w.length;
         }
         System.out.println(sum); //6

@@ -1,63 +1,55 @@
 package day14_arrays;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Arrays03 {
 
     public static void main(String[] args) {
 
- //EXAMPLE 1: Bir ögretmenin sınıfındaki ögrencilerin isimlerini application'a yüklemesini saglayan kodu yazınız.
- //       (Kullanıcı ile beraber bir Array olusturunuz ve icine data ekleyiniz)
-        Scanner input = new Scanner(System.in);
-        System.out.println("Kac ogrenci ismi gireceksiniz?");
-        int numOfStudent = input.nextInt();
+        //Example 1: Type code to check if a specific element exists in an Array or not
+        String str[] = {"Ali", "Tom", "Carl", "Angie"};
 
-        String names[] =new String[numOfStudent];
-
-        System.out.println("Girisi sonlandırmak icin Q harfine basınız.");
-
-        for (int i = 1; i <=numOfStudent ; i++) {  // 1'den baslattık cinkü ögrenci isimlerini girerken indexe gerek yok
-
-            System.out.println("Lutfen "+ i + ". ogrencinin ilk ismini giriniz");
-
-            String strName =input.next();
-
-            if (strName.equalsIgnoreCase("Q")){  // girilen isim q ya esit olmadıgı icin fols olur break calısmaz, ismi array'e ekler taki yorulup artık bırakmak istersek q harfini girince break calısır, kod kırılır.
-                break;
-            }
-
-            names[i-1] = strName;
-
-        }
-        System.out.println(Arrays.toString(names));
-
-        // [ali, eder, yasın, null, null, null,..] Array oldugu icin girdigimiz isimler gözüküyor girmedigimiz
-        //  kısmı null olarak gözükür. Listlerde null lar da gözükmez, sadece grilen data gözükür bos olan kısım null olarak gözükmez.
-
-
-//EXAMPLE 2: Bir Array'in icinde herhangi bir elementin olup olmadıgıni kontrol eden ve kac kere tekrarlandıdını gösteren kodu yazınız
-//   [2, 1, 2, -3, 2] kullanıcı 2'i sordu ==> 2 elemanı var ve 3 kere tekrarlandı.
-//                  kullanıcı 6'i sordu ==> 6 elemanı array de yok.
-
-        int arr[] = {2, 1, 2, -3, 2};
-
-        int element = 2;
-
-        int counter = 0;  //flag
-
-        for (int w : arr){
-            if (w==element){
+        //1.Way:
+        String name = "Carl";
+        int counter = 0;
+        //Ali, Tom, Carl, Angie
+        for (String w : str) {
+            if (w.equals(name)) {
                 counter++;
             }
         }
-
-        if (counter>0){
-            System.out.println(element + " array de " + counter + " defa var");
-        }else {
-            System.out.println(element + " array de yok");
+        if (counter > 0) {
+            System.out.println(name + " exists in the Array");
+        } else {
+            System.out.println(name + " does not exist in the Array");
         }
 
+        //2.Way: We will use binarySearch() method
+        // binarySearch() methodunu kullanmadan önce mutlaka "Arrays.sort()" methodunu kullanmalıyız.
+        // binarySearch() bize bir elementin arrayde olup olmadıgını verir. Eger element arrayde varsa o elementin indexini verir.
+        // binarySearch() methodu tekrarlayan elementler icin kullanılmaz( iki tane 22 varsa bazen 1.yi bazen 2. 22'i verir, o nedenle kullanılmaz)
+        //      i)If the element exists binarySearch() method returns the index of the element
+
+        Arrays.sort(str);//["Ali", "Angie", "Carl", "Tom"]
+
+        int idx = Arrays.binarySearch(str, "Carl"); // 2 parametre ile calısır: 1.arrayın adı, 2.aradıgımız element
+        System.out.println(idx);//If the index is zero or more, it means the element exists
+
+        int idxMiami = Arrays.binarySearch(str, "Miami");
+        System.out.println(idxMiami);   //  -4 ==>  "-" means does not exist. ("-" elementin arrayde olmadıgını, "rakam(4)" ise olsaydı kacıncı sırada oldugunu gösterir. sırayıda sort kullandıgımız icin ona göre sıraya sokar)
+        //          "4" means if it exists it would be 4th element
+
+
+//    Example 1:
+
+        int arr[] = {12, 23, 45, 9};
+
+        int number = 45;
+
+        Arrays.sort(arr);
+
+       int indxx= Arrays.binarySearch(arr, number);
+        System.out.println(indxx); //3
 
     }
 }

@@ -9,6 +9,8 @@ public class MultiDimensionalArrays03 {
 
         String arr [][] = { {"learn", "java", "it"},{"is", "easy"}};
 
+// not: yeni array ousturmalıyız ve yeni array'in uzunlugu orjinal array'in eleman sayısına esit olmalı
+
         //1.Step: Find the total number of elements in the multidimensional array
         int sum =0;
         for (String[] w: arr){
@@ -25,7 +27,7 @@ public class MultiDimensionalArrays03 {
         for (String[] w : arr){
 
             for (String u : w){
-                brr[idx] = u;
+                brr[idx] = u; //brr[idx]'ın idx'i 0 olunca ilk elementi yeni array de 0.idx'e koyar. Sonra  idx++; bir artar ve indexi 1 olan elementi alır yeni arrayin icine 1. indxe koyar....
                 idx++;
             }
 

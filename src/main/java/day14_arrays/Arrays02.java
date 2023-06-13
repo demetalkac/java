@@ -59,7 +59,7 @@ public class Arrays02 {
         System.out.println(Arrays.toString(words));//[I, want, to, go, to, university, to, learn, more]
         Arrays.sort(words, Comparator.comparingInt(String::length));  //"Comparator"  2 parametre ile calısır.
 //                                                              sort() unu "Comparator" olanı seciyoruz yoksa sort alfabetik olarak sıralar
-//                                                             Comparator. karsılastır demek, (String::length) string icinde length'e gire karsılastır ve sırala.
+//                                                             Comparator. karsılastır demek, (String::length) string icinde length'e gore karsılastır ve sırala.
         System.out.println(Arrays.toString(words));//[I, to, go, to, to, want, more, learn, university]
         System.out.println(words[words.length-1]);//university
 

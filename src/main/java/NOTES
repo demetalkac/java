@@ -143,6 +143,9 @@ NOT: "and" ve "or" bir arada kullanınca karısıklık olmaması icin parantez i
 
   *ücgenin cevre uzunlugu => a+b+c
 
+
+
+
   *cemberin cevresi => 2*3,24*r veya  2*314*r/100
 
   * '%': firstNum * secondNum/100
@@ -162,5 +165,38 @@ NOT: "and" ve "or" bir arada kullanınca karısıklık olmaması icin parantez i
 
 
 
-7-)
+7-)     binarySearch() method -Array de kullanıyoruz.
+                // binarySearch() methodunu kullanmadan önce mutlaka "Arrays.sort()" methodunu kullanmalıyız.
+                // binarySearch() bize bir elementin arrayde olup olmadıgını verir. Eger element arrayde varsa o elementin indexini verir.
+                // binarySearch() methodu tekrarlayan elementler icin kullanılmaz( iki tane 22 varsa bazen 1.yi bazen 2. 22'i verir, o nedenle kullanılmaz)
+                //      i)If the element exists binarySearch() method returns the index of the element
+
+          //Example 1: Type code to check if a specific element exists in an Array or not
+                String str[] = {"Ali", "Tom", "Carl", "Angie"};
+
+
+                Arrays.sort(str);//["Ali", "Angie", "Carl", "Tom"]
+
+                int idx = Arrays.binarySearch(str, "Carl"); // 2 parametre ile calısır: 1.arrayın adı, 2.aradıgımız element
+                System.out.println(idx);//If the index is zero or more, it means the element exists
+
+                int idxMiami = Arrays.binarySearch(str, "Miami");
+                System.out.println(idxMiami);   //  -4 ==>  "-" means does not exist. ("-" elementin arrayde olmadıgını, "rakam(4)" ise olsaydı kacıncı sırada oldugunu gösterir. sırayıda sort kullandıgımız icin ona göre sıraya sokar)
+    //          "4" means if it exists it would be 4th element
+
+
+
+8-) ARRAY NASIL YAZDIRILIR?
+              String dateArray[]= date.split("/");
+              System.out.println(Arrays.toString(dateArray));
+
+
+9-) MULTIDIMENSIONAL ARRAY NASIL YAZDIRILIR?
+              String brr[][]={ {"Tom","Jim"},{"Angie"},{"Carl", "Christ","Ali"} };
+
+              System.out.println(Arrays.deepToString(brr)); //[[Tom, Jim], [Angie], [Carl, Christ, Ali]]
+
+11-) Array veya Collection varsa "for-each-loop" kullanmak ilk tercihiniz olsun
+     Array veya Collection var ama "index" kullanmak zorundasınız o zaman "for-each-loop" calısmaz, "for-loop"  ,
+     "while-loop" veya "do-while-loop" kullanmalısınız.
 
