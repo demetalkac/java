@@ -85,6 +85,11 @@ public class Lists02 {
         //      Lists use non-primitives as list elements, therefore you have to convert primitive int to Integer.
         //      To do that, use valueOf() method from Integer wrapper class
 
+        // remove() Bir elementi listten silmek istersek kullanırız. remove() methodunun icine tamsayı koyarsanız
+        // Java onu index olarak kabul eder. Bu nedenle Wapperclass'a cevirmeliyiz ince. Java non-primitiveleri
+        // index olarak kabul etmez java ,o nedenle verdigimiz rakamı bulur ve siler.
+
+
         //Note: You will see "valueOf()" method in many classes.
         //      "valueOf()" method changes the data type without changing the value
 

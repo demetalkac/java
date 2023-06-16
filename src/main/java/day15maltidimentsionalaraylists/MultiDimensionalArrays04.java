@@ -15,7 +15,7 @@ public class MultiDimensionalArrays04 {
             for (int u : w){
                 //1.Way
                // if (max < u){
-                    maxElement = u;
+                  //  maxElement = u;
                 //}
                 //2.Way
                 maxElement = Math.max(maxElement, u); // max() method selects the maximum value of the given two numbers
