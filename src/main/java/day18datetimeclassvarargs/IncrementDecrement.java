@@ -3,8 +3,8 @@ package day18datetimeclassvarargs;
 public class IncrementDecrement {
     public static void main(String[] args) {
         int a = 12;
-        int b = a++; //Post Increment
-        System.out.println(b); //12
+        int b = a++; //Post Increment => variable'ı aldıktan sonra artırma yapar
+        System.out.println(b); //12 => java önce "a"ı gördi ve aldı "b"nın icine koydu sonrada ++ isaretini gördü ve "a"ı alıp 1 artırdı.
         System.out.println(a); //13
 
 
@@ -16,7 +16,7 @@ public class IncrementDecrement {
 
 
         int m = 21;
-        int n= ++m; // Pre Icrement
+        int n= ++m; // Pre Icrement => java önce "m"i artırdı sonra "n"nin icine koydu.
         System.out.println(m); //22
         System.out.println(n); //22
 

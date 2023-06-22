@@ -8,6 +8,9 @@ public class StringBuilder01 {
         //We use "String Class" to create a String, why or when we will need "StringBuilder Class"?
         //String Class is "Immutable", "StringBuilder Class" is "Mutable".
 
+        // "Immutable" : degismeyen,, duragan
+        // "Mutable" : degisime acık
+
         //String Class is "immutable" because of that it does not change existing value.
         //If you want to assign a new value to a variable, Java will create a new container inside the "String Pool"
         //then will put new value in it, then changes the address pointer to the new container.
@@ -34,13 +37,13 @@ public class StringBuilder01 {
         StringBuilder sb1 = new StringBuilder("Mary");
         System.out.println(sb1);//Mary
 
-        sb1.append("Karl");
-        System.out.println(sb1);//MaryKarl
+        sb1.append(" Karl");
+        System.out.println(sb1);//Mary Karl
 
         //2.Way:
         StringBuilder sb2 = new StringBuilder();
         System.out.println(sb2);//Empty
-
+// degerleri append() methodu ile tek tek ekleyebiliriz VEYA coklu ekleme yapabiliriz: ör:sb2.append("Miami ").append("FL ").append("USA");
         sb2.append("Clara ");
         System.out.println(sb2);//Clara
 
@@ -51,7 +54,11 @@ public class StringBuilder01 {
         System.out.println(sb2);//ClaraOceanMiamiFLUSA
 
         //How to learn the capacity in a StringBuilder
-        StringBuilder sb3 = new StringBuilder();
+        // karakter sayısı length() methodu ile bulunur.
+        StringBuilder sb3 = new StringBuilder(); //bos stringBuilder olusturunca java capasite olarak 16 karakter
+                                                // kullanabilecegimiz bos yer verir, buna "capacity" denir.
+                             // Her bu sayıyı asınca bir 16 capacity daha verir ve daha sonrasında 2 tane de fazla verir.
+                              // yani kapasite asımında var olanın iki katının iki fazlasını verir.
 
         sb3.append("Jackson");
         sb3.append("Mexico");

@@ -222,13 +222,15 @@ NOT: "and" ve "or" bir arada kullanınca karısıklık olmaması icin parantez i
 
              ArrayListler olustururken element sayısını söylemeye gerek yok,cunku ArrayListler element sayısında "flexible"dirler.
 
-             2-Array'lerin icine primitive ve referance!lar konulabilir.
-             ArrayListler icine ise sadece "non-primitive"ler konulur
+             2-Array'lerin icine primitive ve referance'lar konulabilir.
+             ArrayListler icine ise sadece "non-primitive"ler konulur, primitive ler ile calısmaz.
 
-             3- Arraylar super fast, cok hızlı. Array'ler memory'i cok az kullanılır.
+             3- Arraylar yapıları basit oldugu icin super fast, cok hızlı. Array'ler memory'i cok az kullanılır.
 
-             note: Eleman sayısı kesin bell olan dataları depolamak icin Array kullanılır,
-                   ama eleman sayısı degisken olan coklu datalar icin Array kullanma riskini almayın.
+             4-Arraylerde method daha az. ArrayListlerde method daha fazladır,daha gelismis bir yapısı vardır.
+
+             note: Eleman sayısı kesin belli olan dataları depolamak icin Array kullanılır,
+                   ama eleman sayısı degisken olan coklu datalar icin Array kullanma riskini almayın.ArrayList kullanın.
               */
 
 
@@ -242,3 +244,173 @@ NOT: "and" ve "or" bir arada kullanınca karısıklık olmaması icin parantez i
 
              **How to print a list on the console**
               System.out.println(myList3);// []
+
+14-) NOTE:iki arrayList'in esit olabilmesi icin ilk önce eleman sayılarını esit olup olmadıgını kontrol etmeliyz,
+          elemanlar esit olmalı ve aynı elemenlar aynı index'te olmalı
+          örnegin "m" ve "n" adında iki list'imiz var ;
+
+                      if (m.size()!=n.size()){
+                          System.out.println("The lists are not same");
+                          break;
+
+                      }
+
+
+
+  15-)     "PassByValue"  ==> day17listpassbyvalue pacgate'nin icinde
+
+               1) When you use a variable inside a method, Java creates the copy of the variable
+                  and uses it inside the method. Java does that to protect the original value of the variables.
+                  If in every method usage, the value changes, it creates very big problems.
+                  --
+                  1) Bir method içinde bir variable kullandığınızda, Java değişkenin(variable) kopyasını oluşturur ve onu
+                   method'un içinde kullanır. Java, variable'ın orijinal değerini korumak için bunu yapar. Buna "Pass by value-Değere göre geçiş" denir
+                   Her metot kullanımında değer değişirse çok büyük sorunlar yaratır.
+
+              2) Some programming languages do not use "Pass by value" they use "Pass by reference".
+                 If you use "Pass by reference" original will change in every method usage.
+                 --
+                 2) Bazı programlama dilleri orjinal degeri koruma altına almamıstır, Bu isi developer'lara bırakmıstır.
+                     Yani bazı programlama dilleri "Pass by value" kullanmaz, "Pass by reference" kullanırlar.
+                     "Referansa göre geçir" kullanırsanız, orijinal her yöntem kullanımında değişecektir.
+
+             3) If you insist on changing the original value in Java you can do it as well.
+                Assign the updated value to the original variable then original value will be updated.
+                --
+                3) Java'daki orijinal değeri değiştirmekte ısrar ediyorsanız, bunu da yapabilirsiniz.
+                          Güncellenen değeri orijinal değişkene atayın, ardından orijinal değer güncellenecektir.
+
+
+ 16-)   "Post Decrement-Increment"  and  "Pre Decrement-Increment"
+
+             int a = 12;
+             int b = a++; //Post Increment => variable'ı aldıktan sonra artırma yapar
+             System.out.println(b); //12 => java önce "a"ı gördi ve aldı "b"nın icine koydu sonrada ++ isaretini gördü ve "a"ı alıp 1 artırdı.
+             System.out.println(a); //13
+
+             int x=15;
+             int y=x--; //Post Decrement
+             System.out.println(x); //14
+             System.out.println(y);//15
+
+             int m = 21;
+             int n= ++m; // Pre Icrement => java önce "m"i artırdı sonra "n"nin icine koydu.
+             System.out.println(m); //22
+             System.out.println(n); //22
+
+             int t = 32;
+             int u = --t; //Pre Decrement
+             System.out.println(t); //31
+             System.out.println(u); //31
+
+  17-)    "Varargs"
+              1)If you want to make number of parameters flexible in a method, use "varargs"
+              2)To create a varargs "Data Type + ... + space + a name for the varargs"
+              3)"Varargs" use Arrays behind. When you work with varargs you may think you are working with Arrays.
+              4)"Varargs" can accept zero or more elements
+            ınt q1==> 5)Can I use another regular parameter after "varargs"?
+                No, because "varargs" cannot be made full, second parameter will be unreachable, it will give error.
+                "varargs" must be last parameter everytime.
+
+             ınt q2==> 6)Can I use another regular parameter before "varargs"?
+                Yes, you can use many regular parameters before "varargs"
+
+            intq3==> 7)Can I use multiple "varargs" parameter in a method?
+                   No.Because once we type varargs as first parameter then we cannot add other parameters after varargs...
+
+             "varargs" : variable argument
+
+          public static void main(String[] args) {
+
+              System.out.println(add(3,5)); //8
+              System.out.println(add(3,5,2)); //10
+              System.out.println(add()); //0
+              System.out.println(add(3)); //3
+          }
+
+          // Create a method adds two integers ( sade ce 2 tane sayı degil, istedigim kadar sayıyı toplayabilirim.
+          public static int add(int... a){
+
+              int sum =0;
+
+              for (int w : a){  //varags'ların arkasında arrays calısır, o nedenle for each kullanıyoruz.
+
+                  sum = sum + w;
+              }
+              return sum;
+          }
+
+  18-)      MethodOverlooding
+
+            overlooding = asırı yükleme
+
+            Bir method aynı isim ile farklı parametrelere sahip birden fazla method olusturmaktır.
+             Method Overlooding nasıl yapılır?
+
+             1-Method isimleri aynı olmalıdır
+             2- Method parametreleri aynı olmalıdır
+                i- Parametre sayıları degistirilebilir
+                ii- Parametrelerin data tiplerini degistirilebilir
+                iii-Parametrelerin yerlerini degistirilebilir ancak data tipleri farklı ise.
+             3-Method ismi+ Parametreler = Method Signnature
+             not:Method Signnature dısında ne degistirirseniz degistirin Java o methodları farklı kabul etmez.
+
+
+
+            public static void main(String[] args) {
+
+                add(3,5);
+                add(3, 5.0);
+
+            }
+
+            public static void add(int a, int b){
+                System.out.println(a+b);
+            }
+
+            public static void add(int a, int b, int c){
+                System.out.println(a);
+            }
+
+            public static void add(double a, int b){
+                System.out.println(a+b);
+            }
+
+            public static void add(int a, double b){
+                System.out.println(a);
+            }
+        }
+
+
+   19-)  StringBuilder "day19stringbuilder"ın icinde
+               //What is "StringBuilder Class"?
+                //"StringBuilder Class" is for creating "Mutable Strings"
+
+                //We use "String Class" to create a String, why or when we will need "StringBuilder Class"?
+                //String Class is "Immutable", "StringBuilder Class" is "Mutable".
+
+                // "Immutable" : degismeyen,, duragan
+                // "Mutable" : degisime acık
+
+             //How to create a StringBuilder Object
+             //1.Way:
+             StringBuilder sb1 = new StringBuilder("Mary");
+             System.out.println(sb1);//Mary
+
+             sb1.append("Karl");
+             System.out.println(sb1);//MaryKarl
+
+             //2.Way:
+             StringBuilder sb2 = new StringBuilder();
+             System.out.println(sb2);//Empty
+
+             sb2.append("Clara ");
+             System.out.println(sb2);//Clara
+
+             sb2.append("Ocean ");
+             System.out.println(sb2);//ClaraOcean
+not: degerleri append() (concent gibi) methodu ile tek tek ekleyebiliriz VEYA coklu ekleme yapabiliriz:
+             ör:sb2.append("Miami ").append("FL ").append("USA");
+             System.out.println(sb2); //ClaraOceanMiamiFLUSA
+
+

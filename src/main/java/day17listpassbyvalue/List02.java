@@ -6,7 +6,7 @@ import java.util.List;
 
 public class List02 {
     public static void main(String[] args) {
-        //Example 1: Find the closest 2 integers in the given list. [12, 15, 10, 21]
+        //Example 1: Find the closest 2 integers in the given list. [12, 15, 10, 21] (elementlerden birbirine en yakın olan ikisini bul)
         List<Integer> a = new ArrayList<>();
         a.add(12);
         a.add(15);

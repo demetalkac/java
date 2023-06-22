@@ -3,7 +3,7 @@ package day16lists;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lists02 {
+public class ArrayLists02 {
     public static void main(String[] args) {
         //Example 1: Type code to remove the first occurrence of a specific element from a String list
         //           ["Shoes", "TV", "Radio", "Laptop", "Shoes", "Book" , "Shoes"]
@@ -37,8 +37,9 @@ public class Lists02 {
         c.add("Shoes");
         c.add("Laptop");
 
-        b.removeAll(c);
-        System.out.println(b);//["TV", "Radio", "Book"]
+        b.removeAll(c); //"c" listindekileri silmek istiyoruz o nedenle  removeAll() methodunun icine onu yazdık
+        // removeAll() methodu: ArrayListe birden fazla element silmek istersek baska bir listin icine silmek istediklerimizi koy sonra  removeAll() methodunun parantezine silmek istedigimiz listi koy.
+        System.out.println(b);//["TV", "Radio", "Book"] yani "b" List'i degismez,aynı kalır.
 
         //Example 3: Type code to remove an element at a specific index
         //           ["Shoes", "TV", "Radio", "Laptop", "Shoes", "Book" , "Shoes"] remove the 5th element ==>
@@ -127,7 +128,30 @@ public class Lists02 {
         }
         System.out.println(k);
 
+        //Example 9: Create a salary list, increase 20% if salary is less than 10000, 10% if salary is more than 10000
+        //           [5000, 6000, 4500, 3900, 7200]
+        List<Double> salary = new ArrayList<>();
+        salary.add(5000.0);
+        salary.add(6000.0);
+        salary.add(4500.0);
+        salary.add(3900.0);
+        salary.add(7200.0);
+
+        System.out.println(salary);
+        for (Double w : salary){
+           if (w<10000) {
+               salary.set(salary.indexOf(w), w * 1.2); //%20 zam =>w * 1.2
+           }else {
+               salary.set(salary.indexOf(w),w*1.1); // %10 zam => w*1.1
+           }
+        }
+        System.out.println(salary);
+
+
+
+
         //How to check if two lists are same or not
+        //NOTE:iki arrayList'in esit olabilmesi icin, elemanlar esit olmalı ve aynı elemenlar aynı index'te olmalı
         List<Character> m = new ArrayList<>();
         m.add('x');
         m.add('z');
@@ -140,11 +164,35 @@ public class Lists02 {
 
         //equals() method checks if the same elements are in the same position.
         //If same elements are in the same position, equals() method returns true, otherwise it returns false.
+        //1. way:
         if(m.equals(n)){
             System.out.println("The lists are same");
         }else{
             System.out.println("The lists are not same");
         }
+        //2. way:
+        int counter=0;
+
+        for (int i = 0; i < m.size() ; i++) {
+
+            if (m.size()!=n.size()){  // bu if ile m ve n listlerinin elemen sayılarının esit olup olmadıgına baktık, eger elemen sayıları esit olmazsa zaten listler esit olmayacak ve asagıdaki kod calısmasına gerek kalmayacak.
+                counter++;
+                System.out.println("The lists are not same");
+                break;
+
+            }else if (m.get(i)!= n.get(i)){
+                counter++;
+                System.out.println("Lists aren't same");
+                break; //ilk hatayı buldugunda yani ilk esit olmayan elementi bulmak icin yani esit olmayanı bulunca
+                      // gerisi calısmayacak ve kodumuz daha hızlı calısmıs olacak. Buraya break koymasakta kod calısır ama hepsini kontrol ederdi.
+
+            }
+        }
+        if (counter==0){
+            System.out.println("The lists are same");
+        }
+
+        System.out.println("===========================================");
 
         //How to check if a list contains multiple elements
         //[12, 23, 32, 14, 24, 56] ==> Check if the list has 23, 56, and 24

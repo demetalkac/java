@@ -2,6 +2,15 @@ package day06;
 
 public class StringManipulations {
     public static void main(String[] args) {
+
+        /*
+        java.lang package is used to create a string object
+
+        By string literal : 	String str = "Apple";
+        By new keyword : 	String str = new String("Apple");
+
+    */
+
        // Count the alphabetic characters in a given String
        // TomHanks!...==>
 

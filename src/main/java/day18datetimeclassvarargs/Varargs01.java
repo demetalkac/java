@@ -16,6 +16,8 @@ public class Varargs01 {
 
       intq3==> 7)Can I use multiple "varargs" parameter in a method?
              No.Because once we type varargs as first parameter then we cannot add other parameters after varargs...
+
+       "varargs" : variable argument
      */
 
 
@@ -30,12 +32,12 @@ public class Varargs01 {
 
     }
 
-    // Create a method adds two integers
+    // Create a method adds two integers ( sade ce 2 tane sayı degil, istedigim kadar sayıyı toplayabilirim.
     public static int add(int... a){
 
         int sum =0;
 
-        for (int w : a){
+        for (int w : a){  //varags'ların arkasında arrays calısır, o nedenle for each kullanıyoruz.
 
             sum = sum + w;
         }

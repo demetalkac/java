@@ -14,11 +14,13 @@ public class StringBuffer01 {
             3)StringBuffer is using "multi-thread" characteristic because of that it is slower than StringBuilder
 
             Scenarios:
-            1)I need immutable String ==> String Class
+            1)I need immutable(degistirilemez data icin) String ==> String Class
             2)I need mutable and not multi-thread ==> StringBuilder
             3)I need mutable and multi-thread == > StringBuffer
 
             When you use multi-thread you need to create an order for the threads, this called "synchronization"
+
+            "synchronization":aynı anda farklı is yaparken ,düzgün sıralama yapma becerisi
          */
 
 

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class List01 {
     public static void main(String[] args) {
-        //Example 1: Type code to make all elements in a List unique
+        //Example 1: Type code to make all elements in a List unique (listteki elemanları tekrarsız yazınız)
         //           [2, 3, 2, 2, 5] ==> [2, 3, 5]
         List<Integer> a = new ArrayList<>();
         a.add(2);
@@ -18,7 +18,7 @@ public class List01 {
         List<Integer> b = new ArrayList<>();
 
         for(Integer w : a){
-            if(!b.contains(w)){
+            if(!b.contains(w)){ //a listinde olan element b de var mı onu kontrol ediyor, varsa eklemiyor.
                 b.add(w);
             }
         }
@@ -46,8 +46,38 @@ public class List01 {
             c.add(str);
         }
         System.out.println(c);
+        System.out.println("**************");
 
+    /*
+       yukardaki kodu bir oyun gibi yaparsak:
 
+        Scanner input = new Scanner(System.in);
+
+        String harf = "";
+
+        List<String> c = new ArrayList<>();
+        c.add("A");
+        c.add("K");
+        c.add("R");
+        c.add("S");
+
+        do {
+            System.out.println("Enter a letter...");
+            harf =input.next().substring(0,1);
+
+            if (c.contains(harf)){
+                c.set(c.indexOf(harf),"Bulundu");
+            } else if (!harf.equals("Q")) {
+                c.add(harf);
+
+            }
+
+        }while (!harf.equals("Q"));
+        System.out.println(c);
+
+     */
+
+        System.out.println("**************");
         List<String> d = new ArrayList<>();
         d.add("Ab");
         d.add("Kl");
