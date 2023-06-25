@@ -1,7 +1,61 @@
 package day22inheritancepolymorphism;
 
 public class Ruuner {
-    public static void main(String[] args) {
+
+    /*
+                         POLYMOPHISM
+        @Override : @Override annotation'inı kullanarak, java'nın yaptıgımız Override islemini kontrol etmesini saglarız.
+
+        1- Override yaparken "method'un body"si degistirilir( cünkü methodun isleyisini-imlementation- begenmedigimiz iccin degistiririz)
+        2- Override yaparken asla method signature (isim ve parametre) degistirilemez.
+        3-Override yaparken "inheritance" olmak zorundadır.( cünkü parent-chid iliskisi olmadan yapamayız)
+        4-Override yaparken "access modifier"lar belli kurallara göre farklılastırılabilirler.
+         i- "privede" methodlar override edilemezler
+         ii-Child class daki "override edilen" method'un access modifier'i Parent class'daki
+            method'un access modifier'i aynı veya daha genis olmalıdır.
+            note: Child class daki method'un access modfier'i daha dar olamaz.
+         iii- "default method"lar aynı package icindeyse override edilebilirler,
+               farklı package'den override edilemezler.
+        5-Parent Class'daki methodun "return type"i void ise "retuen type" degistirilemez.
+        6-Parent Class'daki methodun "return type"i primitive ise "retuen type" degistirilemez.
+          örnegin; asıl method'ta return type int ise override yaptıgımız methodun return type'ı da int olmalı
+        7-Parent Class'daki methodun "return type"i Wrapper ise "retuen type" degistirilemez.
+        8-Parent Class'daki methodun "return type"i Parent Class ise "retuen type" child'lardan biri olabilir.
+         note:Child class'daki return type Parent Class'dakinden genis olamaz.
+         note: Aralarında parent-child ilskisi olmayan classlar Overriding'de return type degisiminde kullanılamazlar.
+              Mesela "Short", "Integer"'dan kücüktür, fakat aralarında "parent-child" iliskisi
+              olmadıgından "Integer" yerine "Short" kullanılamaz.
+        note: Child'daki methodun return typendan parenttaki methodun return type'na gidiste "IS-A" Relationship olmalı
+              Aralarında "ıs-a" relationship olan data type'lara "covariant" da denir.
+
+       - child'dan parent'a gidiliyorsa "IS-A" iliskisi var. ör: Cat is a Animal
+         Yani child'an parent'e giderken return type da "İS A" iliskisi olmalı."IS A" iliskisi yoksa return type degistirilemez.
+       - parentten child'a gidildiginde  ise "HAS A". Animal has a Cat
+
+       **
+       Asagıdaki child clasdaki  bu methoda "Overriding Method" (yani override yapılmıs onlamında) denir.
+           @Override
+            public void eat() {
+            System.out.println("Cats eat...");
+           }
+            ----
+            Asagıdaki parent clasdaki bu methoda ise "Overridden Method" denir.
+            public Animal create(){
+              return new Animal();
+            }
+     9- "final" methodlar Override edilemezler, cünkü "Overriding" de method body degistirilir
+         fakat "final" method body degistirilmesine musade etmez.
+      10- Polymophism = overloading + overriding
+
+      11- overloading ve overriding arasındaki farklar nelerdir?
+        i-Overloading icin "inheritance" gerekmez fakat Overriding icin gerekir.
+        ii-"private" methodlar Overload edilebilir, Override edilemezler
+        iii-"final" methodlar Overload edilebilir, Override edilemezler
+        İV- "Overloading static polymorphism" olara, "Overriding" "dynamic polymorphism" olarak adlandırılır.
+          Cünkü static methodlar Overload edilebilir, override edlemezler.
+        v-  "Overloading" de method signnature degisir ama "Overriding1 method signature a dokunmaz.
+     */
+       public static void main(String[] args) {
 
         Cat c = new Cat();
         System.out.println(c.name); //Cat

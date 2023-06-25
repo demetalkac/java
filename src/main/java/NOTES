@@ -354,7 +354,19 @@ NOT: "and" ve "or" bir arada kullanınca karısıklık olmaması icin parantez i
                 iii-Parametrelerin yerlerini degistirilebilir ancak data tipleri farklı ise.
              3-Method ismi+ Parametreler = Method Signnature
              not:Method Signnature dısında ne degistirirseniz degistirin Java o methodları farklı kabul etmez.
+       ----
+               1)If you create a method with the same name and different parameters, it means you are doing "Method Overloading"
+               2)"Method Overloading" happens in a single class, therefore we do not need "inheritance" for "Method Overloading"
+               3)To do "Method Overloading"
+                   i)Do not change the method name
+                   ii)Change the parameters by changing the a)number of the parameters  b)data type of the parameters
+                    c)places of the parameters
 
+                   Note: To use option "c" data types must be different
+               4)"private" methods can be "overloaded"
+               5)"final" methods can be "overloaded"
+               6)"static" methods can be "overloaded"
+               7)Why do we need "Method Overloading"?
 
 
             public static void main(String[] args) {
@@ -380,6 +392,23 @@ NOT: "and" ve "or" bir arada kullanınca karısıklık olmaması icin parantez i
                 System.out.println(a);
             }
         }
+
+            /*
+                1)If you create a method with the same name and different parameters, it means you are doing "Method Overloading"
+                2)"Method Overloading" happens in a single class, therefore we do not need "inheritance" for "Method Overloading"
+                3)To do "Method Overloading"
+                    i)Do not change the method name
+                    ii)Change the parameters by changing the a)number of the parameters  b)data type of the parameters
+                     c)places of the parameters
+
+                    Note: To use option "c" data types must be different
+                4)"private" methods can be "overloaded"
+                5)"final" methods can be "overloaded"
+                6)"static" methods can be "overloaded"
+                7)Why do we need "Method Overloading"?
+
+                Note: Method Overloading + Method Overriding = Polymorphism
+             */
 
 
    19-)  StringBuilder "day19stringbuilder"ın icinde
@@ -413,4 +442,361 @@ not: degerleri append() (concent gibi) methodu ile tek tek ekleyebiliriz VEYA co
              ör:sb2.append("Miami ").append("FL ").append("USA");
              System.out.println(sb2); //ClaraOceanMiamiFLUSA
 
+  20-) "Access Modifier" => day20accessmodifiersinheritance packgende "Student class" ve "Runner class"ında
+      - Bir classtan baska classa ulasmak istiyorsak obje olusturmalıyız.
+      Yani Runner class da Student classa ulasmk istiyorsak obje olusturmalıyız. public,protected ve default olana aynı
+      packgede iken ulasabilirim, ama privide de ulasamayız.
 
+      a)What is the difference between "default" and "protected" access modifiers?
+          i)"protected" access modifier is wider than "default" modifier
+          ii)"default" ones cannot be used from outside the package, therefore it's other name is    "package private"
+             "protected" ones can be used form the class in other packages if the classes are "child classes"
+
+      b)Could you please tell the name of the access modifiers from the narrowest to the widest?
+           private < default < protected < public
+
+      c)Could you please explain all access modifiers?
+NOT: "default"  da “package privide” da denir.
+
+  //It is accessible from entire the project , there is no restriction
+   public String stdName = "Tom Hanks";
+
+   // It can be used just inside the"Student" class.
+   //It can be used just inside the class it was created
+   private String stdId = "TH202217007";
+
+
+   //It can be used just inside the "day20accessmodifiersinheritance" package
+   //It can be used just inside the package it was created
+   double stdGpa = 3.83; //If you do not type any access modifier it will be "default"
+
+
+   //It can be used inside the "day20accessmodifiersinheritance" package, and from the child classes in other packages
+   protected String stdAddress = "Miami, FL USA";
+     ---
+           //I accessed data on the object
+          Student std1 = new Student();
+          System.out.println(std1.stdName); //Tom Hanks
+
+           Student std2 = new Student();
+           System.out.println(std2.stdGpa); //3.83
+
+           // If you want to access data inside the class without using any object, the data must be static
+           System.out.println(Student.Address); //Miami, FL USA
+
+  21-)  "" Inheritancepackage" => day20accessmodifiersinheritance İCİNDE class Animal DA.
+
+      inheritance: miras anlamındadır. Childe'ların ihtiyacı olanları(method...) parent class'tan kullanabilmesine denir.
+      1- Tekrarlı kod problemi
+      2- Cod tamirinin(maintenance) cok zor olması problemi
+      3- Cok büyük classlar olusturma problemi , bu 3 problemi cozmek icin inheritance olusturmus java.
+         --
+     - Inheritance'in calısması icin classlar arasında parent-childe iliskisi kurmalıyız.
+     - parent-child iliskisi icin "extends" keyword'unu kullanırız. "extends"in solunda child class,
+       sagında parent classın ismi olur. ör: public class Cat extends Animal { => Cat child, Animal parent
+     - Child Class object'ler Parent Cass'dan method ve variable'ları kullanabilirler.
+     - Parent Class object'ler Child Cass'dan method ve variable'ları kullanamaz.
+        ---
+            "method ve variable"
+     - "privede" method ve variable'lar Child Class'lar tarafından kullanılamazlar(yani prived olanlar inheritance edilemez)
+     -"protected" method ve variable'lar Child Class'lar tarafından kullanılabilirler(yani protected olanlar inheritance edilebilirler)
+     -"public" method ve variable'lar Child Class'lar tarafından kullanılabilirler(yani public olanlar inheritance edilebilirler)
+    -"default" method ve variable'lar aynı package'deki Child Class'lar tarafından kullanılabilirler(yani default olanlar inheritance edilebilirler)
+
+
+    NOT: "Object class" bütün kılasların parenti oldugu icin onda yeralan bütün methodları extends yapmadan da kullanabiliriz.
+         Java da "Object class" haric her classın parent'ı vardır.
+
+         ---
+         inheritance Cesitleri:
+         1- Multilevel Inheritance =>her classın bir parentı ve her classın bir childı var.apartman gibi, java kabuleder
+         2- Hierarchical Inheritance => Bir parentın birden fazla child'ı var
+         3- Multible Inheritance => bir childen iki parenti var. java doesnt support(desteklemez)
+         4- Single Inheritance => bir child class icin bir Prent Class demektir, java bunu destekler.
+
+         ----
+                "objekt" olusturup variable cagırma:
+           objekt olustururken: (aralarında parent-child iliskisi var yani extends edilmis classlar icin konusuyoruz):
+        - bulundugu classın ismi ile olusturabiliriz => Cat cat1 = new Cat();
+        - bulundugu classın parentinin ismini kullanarak da olusturabiliriz  =>Mamal cat2 = new Cat();
+        - bulundugu classın parentinin parentinin ismini kullanarak da olusturabiliriz =>Animal cat3 = new Cat();
+          Yani objeckt olustururken data type'nı bulundugu clastan secebilecegimiz gibi parentlarından da secebiliriz.Bunu
+          yapacagımız göre seceriz.
+       * Classların icine aynı isimle variable koydugumuzda: Kullanmak istedigimizde, variable'ı objekt icinde cagırdıgımızda ,
+       hangi data type ile objeckt olusturduysak onun icindeki variable degerini getirir bize. ör:
+        Mamal clasında ,"public int a = 14;" olusturduk ve Cat classında da "public int a = 10;" olusturduk
+        Eger Cat objesinden cagırırsam: Cat cat1 = new Cat();
+                                        System.out.println(cat1.a); ==> 10
+        Ama Mamal objesinden cagırırsam: Mamal cat2 = new Cat();
+                                        System.out.println(cat2.a); ==> 14 ,olur.
+
+     not:  Mamal clasında ,"public int b = 74;" olusturduk ama Cat classında b variable yok ise, ve
+           Cat classından obje yapıp ordan cagırsak variable'ı  Cat classında olmadıgı icin parent'ı
+           olan Mamal classına gider ordan alır.
+          -Inheritance da variable'lar seclirken Java object'in data type'ına bakar.
+           Oncelikle istedigimiz variable'ı Objectin data type'ı olan Class'da arar.
+           Ama variable O child classda yoksa parent'ına gidecek ordan alacak.
+           Hicbir parent classda bulamazsa hata verir.
+
+        ----------
+                              "methodlar"
+  *Objeckt olustururken Object'in data type'i Child Class'lardan secilemez.:
+   Cat cat5= new Mammal(); seklinde olamaz, error verir.
+   Mammal cat5= new Mammal(); seklinde olmalı
+
+   *Inheritance'da metdod'lar secilirken Java Constructor'a bakar.
+    Önce istedigimiz method'u Constructorı kullanılan class'dan alır.
+      Cat cat4= new Cat();
+      cat4.eat(); =>Cat Classındaki eat methodunu alır,cunkü constructorı da Cat()
+
+     Mammal cat5= new Mammal(); =>Mammal Classındaki eat methodunu alır,cunkü constructorı da Mammal()
+
+   *Mammal Classına drink() methodu koyup:
+                     "public void drink(){
+                     System. out.printl.("mammal eat"); } ve Cat methodu ile cagırsak constructorına bakar
+                                                    Cat clasında drink methodu olmadıgı icin parantı olan Mammal'dan alır.
+        Cat cat4= new Cat();
+        cat4.drink(); //  "mammal eat" , seklinde gelir.
+
+   -Yani method cagırırken constructora bakar ve Constructorı olan clasta yoksa bir üst parentendan alır, parentlarında da yoksa hata verir.
+
+       -----
+          "Constructor"
+     *"Constructor" lar obje üretmede kullanılır, constructor olmadan obje üretilemez.
+     *Constructor da :-return typ yok
+                      - class ismi ile aynı olmalı ismi
+                    - ismi büyük harfle baslamalı
+       Methodlarda ise  :-return typ var
+                         - class ismi ile aynı olmak zorunda degil istedigimiz ismi verebiliriz
+                        - ismi kücük harfle baslamalı
+
+     * access modifier => constructor ismi(clas ismi ile aynı olmalı) => () => {}
+          public Mammal(){ System. out.printl.("mammal"); }
+     *Constructor'un nasıl callıstıgına bakmak icin runnur classta main icinde bir obje olusturup calıstırırsak,
+     ilk önce parenttaki constructor'ı görürüm sonra en alttaki child classın constructorını görürüm.
+      ör: Animal=> Mammal => Cat class'larımız var ve bu classlarda constructorları var
+          Cat cat1 = new Cat(); => calıstırdıgımızda sırasıyla  "Animal=> Mammal => Cat" constructurlarını görürüz konsolda.
+    Yani constructorlar yukardan asagıya dogru calısır.
+
+     * -Java da object olustururken constructorlar parenttan child’a dogru calıstırır
+       -Java en üst parent constructor’a cıkabilmek icin “super()” kodunu kullanır.
+       -“super()” kodu her constructor’ın ilk satırında “gizli” olarak bulunur.
+       -“super()” kodunu istersek görünür sekilde yazabiliriz
+       -“super()” kodunu görünür sekilde yazarsak , ilk satır dısında bir satıra koyamayız, hata verir.
+       -“super()” kodu parent class’tan constructor cagırmaya yarar.
+                      -----------
+                //1) super() is used to call constructor from parent class.
+                //2) super() is in the first line of every constructor body.
+                //3) super() is invisible as default, if you want you can type it explicitly.
+
+                 Civic d = new Civic(2021);
+                 //1) super() can be used with parameters like super(true), super("Hybrid"), super(2021)
+                  //2) When a class has multiple constructors to select the constructor we need, we use
+                   //   super() with parameters
+
+       **
+       1-Class olusturuldugunda  Java otomatik olarak görünmez bir constructor verir, cünkü Java Class'ın bir kalıp oldugunu
+        ve Object olusturmak icin olusturuldugunu ve Object olusturmak icin constructor'ın sart oldugunu bilir.
+       2-Java'nın otomatik olarak olusturuldugu bu görünmez constructor'a "default constructor" denir.
+       3- Biz kendimiz herhangi bir constructor olusturdugumuzda Java  "default constructor"ı siler.
+       4- Bir classta birden fazla constructor olabilir. Ama parametreleri farklı olmalı
+       ör: public Honda(){}
+           public Honda(int price)}
+           public Honda (int price, int year)} ... gibi
+
+       5-"this" keyword "bu class" anlamındadır.örnegin "this.price" demek bu class'daki "price" isimli variable demektir
+       "this.price" syntax'i construclorın icinde kullanılır.
+
+       6- Constuctor kullanarak variable'lar üzerinde yaptıgınız degisimler sadece Object üzerindeki variable'ların degerlerini degistirir.
+       Class daki variable degerlerini degistirmez.
+
+       /*
+                   1)When you try to access a "variable" by using an object in inheritance,
+                   start to look for the "variable" in the class used in the "data type of the object"
+
+                   2)When you try to access a "method" by using an object in inheritance,
+                   start to look for the "object" in the class whose "constructor" was used
+
+                   3)In te first line of every constructor there is invisible "super()" to call default constructor from
+                   the parent class, if you want you type it explicitly.
+
+                   4)Data type of object can be selected from the class itself or from the parents of the class.
+                     Object dog = new Dog();   OR   Animal dog = new Dog();   OR   Mammal dog = new Dog();
+                      OR   Dog dog = new Dog();
+
+                   5)"private" class members cannot be inherited
+                     "default" class members can be inherited if the child class in the same package with the parent class.
+                     "protected" and "public" class members do not have restriction in inheritance
+               */
+
+                          /*
+                           1)this() is used to call constructor from the same class.
+                           2)this() must be in the first line in a constructor body.
+                           3)this() is used to call constructor from the same class, super() is used to call constructor from parent class.
+                       */
+
+
+  22-)           METHOD OVERRIDING
+            1)When the child classes use the methods from the parent classes, we may need to update implementation of the methods.
+              For example; in Animal class eat() method tells "Animals eat", but to tell "Animals eat" in Cat class is not good.
+              To be able to create specific implementation for the Cat class like "Cats eat" we should update the method body.
+              This is called "Method Overriding"
+            2)To do "Method Overriding" we need "inheritance". If there is no "inheritance" it means there is no "Method Overriding".
+            3)When we use "Method Overriding", we do not touch to the "Method Signature"(Method Name + Parameters)
+            4)"@Override" annotation checks the "Overriding Rules" when you do "Overriding"
+            5)When you do "Method Overriding", you cannot use "Narrower" access modifiers in child class,
+              you can use same or wider access modifiers.
+            6)When you do "Method Overriding", the method in parent class is called "Overridden Method",
+              the method in child class is called "Overriding Method"
+            7)When you do "Method Overriding", if the return type is "void" in "Overridden Method",
+              return type of the "Overriding Method" must be "void"
+            8)When you do "Method Overriding", return type of the "Overriding Method" can be same or the child
+              of the return type of the "Overridden Method"
+              From child return type to parent type you must have "IS-A" Relationship
+            9)Between the Wrapper Classes, Java did not create "Parent-Child Relationship", therefore
+              between the Wrapper Classes there is no "IS-A" relationship. If there is no "IS-A" Relationship
+              you cannot change the return types in "Method Overriding"
+            10)When you do "Method Overriding", if the return type of the "Overridden Method" is "primitive"
+              you cannot change it in "Method Overriding" because "primitive" data types are not classes
+              if they are not classes you cannot have "IS-A" relationship.
+
+              Note: If a method is final, it means its body cannot be updated.
+
+            11)Body of a "final method" cannot be updated, because in Overriding we change the method
+              body, but final methods do not allow us to change the body
+
+            12)"private" methods cannot be overridden, because to override a method we have to access
+              to it. "private" methods are not accessible from other classes
+
+            13)"static" methods cannot be overridden because "static" things are common for
+              all child classes, if any child class updates the static method body other child classes
+              will be effected as well, therefore Java does not let you override a static method.
+
+
+   23-)        "super"  ve "super()" ın FARKLARI
+                    1)"super" keyword is used to get data(variables + methods) from parent classes in inheritance
+                    2)If there is no data(variables + methods) in parent Java looks for the data in grandparents
+                      If no parent has the data(variables + methods) Java gives Compile Time Error
+                    3)"super()" must be the first statement in the constructor body, but "super" can be in any line
+                    4)"super()" is for calling "constructors" from parent class, "super" is for calling variables and methods
+                      from the parent class
+                    5)"this" is used to call data(variables + methods) from the class itself.
+                      When you use "this", it means you are telling to Java "do not go to the parent, stay in this class"
+                 */
+
+   24-)    /*
+                                 POLYMOPHISM
+                @Override : @Override annotation'inı kullanarak, java'nın yaptıgımız Override islemini kontrol etmesini saglarız.
+
+                1- Override yaparken "method'un body"si degistirilir( cünkü methodun isleyisini-imlementation- begenmedigimiz iccin degistiririz)
+                2- Override yaparken asla method signature (isim ve parametre) degistirilemez.
+                3-Override yaparken "inheritance" olmak zorundadır.( cünkü parent-chid iliskisi olmadan yapamayız)
+                4-Override yaparken "access modifier"lar belli kurallara göre farklılastırılabilirler.
+                 i- "privede" methodlar override edilemezler
+                 ii-Child class daki "override edilen" method'un access modifier'i Parent class'daki
+                    method'un access modifier'i aynı veya daha genis olmalıdır.
+                    note: Child class daki method'un access modfier'i daha dar olamaz.
+                 iii- "default method"lar aynı package icindeyse override edilebilirler,
+                       farklı package'den override edilemezler.
+                5-Parent Class'daki methodun "return type"i void ise "retuen type" degistirilemez.
+                6-Parent Class'daki methodun "return type"i primitive ise "retuen type" degistirilemez.
+                  örnegin; asıl method'ta return type int ise override yaptıgımız methodun return type'ı da int olmalı
+                7-Parent Class'daki methodun "return type"i Wrapper ise "retuen type" degistirilemez.
+                8-Parent Class'daki methodun "return type"i Parent Class ise "retuen type" child'lardan biri olabilir.
+                 note:Child class'daki return type Parent Class'dakinden genis olamaz.
+                 note: Aralarında parent-child ilskisi olmayan classlar Overriding'de return type degisiminde kullanılamazlar.
+                      Mesela "Short", "Integer"'dan kücüktür, fakat aralarında "parent-child" iliskisi
+                      olmadıgından "Integer" yerine "Short" kullanılamaz.
+                note: Child'daki methodun return typendan parenttaki methodun return type'na gidiste "IS-A" Relationship olmalı
+                      Aralarında "ıs-a" relationship olan data type'lara "covariant" da denir.
+
+               - child'dan parent'a gidiliyorsa "IS-A" iliskisi var. ör: Cat is a Animal
+                 Yani child'an parent'e giderken return type da "İS A" iliskisi olmalı."IS A" iliskisi yoksa return type degistirilemez.
+               - parentten child'a gidildiginde  ise "HAS A". Animal has a Cat
+
+               **
+               Asagıdaki child clasdaki  bu methoda "Overriding Method" (yani override yapılmıs onlamında) denir.
+                   @Override
+                    public void eat() {
+                    System.out.println("Cats eat...");
+                   }
+                    ----
+                    Asagıdaki parent clasdaki bu methoda ise "Overridden Method" denir.
+                    public Animal create(){
+                      return new Animal();
+                    }
+               9- "final" methodlar Override edilemezler, cünkü "Overriding" de method body degistirilir
+                   fakat "final" method body degistirilmesine musade etmez.
+               10- Polymophism = overloading + overriding
+
+
+              11- overloading ve overriding arasındaki farklar nelerdir?
+                  i-Overloading icin "inheritance" gerekmez fakat Overriding icin gerekir.
+                  ii-"private" methodlar Overload edilebilir, Override edilemezler
+                  iii-"final" methodlar Overload edilebilir, Override edilemezler
+                  İV- "Overloading static polymorphism" olara, "Overriding" "dynamic polymorphism" olarak adlandırılır.
+                     Cünkü static methodlar Overload edilebilir, override edlemezler.
+                  v-  "Overloading" de method signnature degisir ama "Overriding1 method signature a dokunmaz.
+
+             */
+                      /*
+                        METHOD OVERRIDING
+                          1)When the child classes use the methods from the parent classes, we may need to update implementation of the methods.
+                            For example; in Animal class eat() method tells "Animals eat", but to tell "Animals eat" in Cat class is not good.
+                            To be able to create specific implementation for the Cat class like "Cats eat" we should update the method body.
+                            This is called "Method Overriding"
+                          2)To do "Method Overriding" we need "inheritance". If there is no "inheritance" it means there is no "Method Overriding".
+                          3)When we use "Method Overriding", we do not touch to the "Method Signature"(Method Name + Parameters)
+                          4)"@Override" annotation checks the "Overriding Rules" when you do "Overriding"
+                          5)When you do "Method Overriding", you cannot use "Narrower" access modifiers in child class,
+                            you can use same or wider access modifiers.
+                          6)When you do "Method Overriding", the method in parent class is called "Overridden Method",
+                            the method in child class is called "Overriding Method"
+                          7)When you do "Method Overriding", if the return type is "void" in "Overridden Method",
+                            return type of the "Overriding Method" must be "void"
+                          8)When you do "Method Overriding", return type of the "Overriding Method" can be same or the child
+                            of the return type of the "Overridden Method"
+                            From child return type to parent type you must have "IS-A" Relationship
+                          9)Between the Wrapper Classes, Java did not create "Parent-Child Relationship", therefore
+                            between the Wrapper Classes there is no "IS-A" relationship. If there is no "IS-A" Relationship
+                            you cannot change the return types in "Method Overriding"
+                          10)When you do "Method Overriding", if the return type of the "Overridden Method" is "primitive"
+                            you cannot change it in "Method Overriding" because "primitive" data types are not classes
+                            if they are not classes you cannot have "IS-A" relationship.
+
+                            Note: If a method is final, it means its body cannot be updated.
+
+                          11)Body of a "final method" cannot be updated, because in Overriding we change the method
+                            body, but final methods do not allow us to change the body
+
+                          12)"private" methods cannot be overridden, because to override a method we have to access
+                            to it. "private" methods are not accessible from other classes
+
+                          13)"static" methods cannot be overridden because "static" things are common for
+                            all child classes, if any child class updates the static method body other child classes
+                            will be effected as well, therefore Java does not let you override a static method.
+                       */
+
+  25-)- “static” keyword nedir?
+      -Classa baglanmıs class elemanlarıdır: Variable, methodlar
+      -“static” class elemanlar her objenin ortak elemanıdır.
+      -static” class elemanında yapılan her degisiklik bütün objeleri etkiler, bütün objelerde görülür
+      - static” class elemana class üzerinden ulasılır, objeler statiklere ulasmada kullanılmaz, kullanırsak hata vermez ama tavsiye edilemez.
+      -”static”ler override edilemezler.
+
+     1)"static" class members (variables and methods) are common for all objects created from the class
+      2)When you do any update on "static" class members, all objects will see the updates on it
+      3)If you want every object informed about every update on a class member make it static.
+
+      -Variable'lar static ise class'a baglanır, stadik degilse objeye baglanır.
+      -Static de yapılan her degisiklik objeler tarafından görülür ama "object"de yapılan degisiklik sadece objeyi etkiler.
+      - STATİC VARİABLE'LARA OBJELERİ KULLANARAK ULASMAK MUMKUN AMA TAVSİYE EDİLMEZ
+      - STATİC VARİABLE'LARA CLASS ISMI KULLANILARAK ULASILMALIDIR.
+
+    */
+
+     //How to create "static" variable
+     //To make a variable "static", put "static" keyword between "access modifier" and "data type"
+     public static int staticCounter  = 0;
+
+  26-)

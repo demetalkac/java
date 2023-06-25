@@ -1,7 +1,7 @@
 package day20accessmodifiersinheritance;
 
 public class Student {
-
+   // Access Modifier
    //It is accessible from entire the project , there is no restriction
    public String stdName = "Tom Hanks";
 
@@ -12,7 +12,7 @@ public class Student {
 
    //It can be used just inside the "day20accessmodifiersinheritance" package
    //It can be used just inside the package it was created
-   double stdGpa = 3.83; //If you do not type any access modifier it will be "defauld"
+   double stdGpa = 3.83; //If you do not type any access modifier it will be "default"
 
 
    //It can be used inside the "day20accessmodifiersinheritance" package, and from the child classes in other packages

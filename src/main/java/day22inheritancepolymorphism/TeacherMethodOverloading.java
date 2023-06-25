@@ -1,6 +1,6 @@
 package day22inheritancepolymorphism;
 
-public class Teacher {
+public class TeacherMethodOverloading {
      /*
         1)If you create a method with the same name and different parameters, it means you are doing "Method Overloading"
         2)"Method Overloading" happens in a single class, therefore we do not need "inheritance" for "Method Overloading"
