@@ -799,4 +799,255 @@ NOT: "default"  da “package privide” da denir.
      //To make a variable "static", put "static" keyword between "access modifier" and "data type"
      public static int staticCounter  = 0;
 
-  26-)
+  26-)   Encapsulation => package day23encapsulationabstraction; icinde.
+
+                Encapsulation is "data hiding"
+                To hide a data we make the access modifier "private"
+                After "hiding data", you may need to "read" or "update" the data.
+                To "read" or "update" the data we will create some methods.
+                To "read" "encapsulated data" you should create "get()" methods, we name it "getters"
+
+                To "update" "encapsulated data" you should create "set()" methods, we name it "setters"
+
+                "get()" and "set()" methods are called "Java Beans"
+
+                If a class is "immutable", it is impossible to change the value of the existing variable.
+                If you want to make a class "immutable" do not create any "setter" method
+
+                                ----------
+               Encapsulation is "data hiding"=> Yani "data gizlemek" demektir.
+              *Data'yı nicin gizlersi?
+               -Data'yı dıs etkenlerden korumak icin.
+
+              *Data'yı nasıl gizlersin?
+              -Access modifier'ını "privide" yaparak gizlerim.
+
+              *Data'yı gizledikten sonra baska classlarda okumak istersen ne yaparsın?
+              - "get methodlar"(getter) olusturarak gizledigimiz dataları okunur hale getirebiliriz.
+
+              *Data'yı gizledikten sonra baska classlarda degistirmek istersen ne yaparsın?
+               - "set methodlar"(setter) olusturarak gizledigimiz dataları degistirebliriz.
+
+               * generate => gettir or setter
+
+
+       GET: "gettir" kullandıgımızda Okuma yaptıgımız icin access modifier public olur.
+           -Variable'ın "data type"ı ile get methodun return taype'ı da aynı olmalı.
+             Yani variable String ise getir ile aldıgımız methodun da data type'ı string olur.
+           -get methodları isimlendirirken "get+ <variable name>", ancak variable'ın data type'ı "boolean" ise "is+<variable name>"
+            ör:  private String stdId = "TH123"; ==>  public String getStdId() {return stdId; }
+                private boolean successful = false; =>public boolean isSuccessful() {return successful; }
+
+           set:-set methodu datayı degisiklik yapmada kullanırız
+           -access modfier'ı "public" olur: baska sınıftan ulasmam icin.
+           -set methodunun return type'ları "void" olur.
+           -set methodların ismi hep set ile baslar, "set+ <variable name>". ör:
+                public void setStdGpa(double gpa){ this.stdGpa = gpa; }
+                public void setSuccessful(boolean successful) { this.successful = successful; }
+           -set method parametre ile calısır.Parametre data tipinde ve isminde olur, isim aynı olmak zorunda dagil ama genel kullanım odur.
+            private double stdGpa = 3.8; => "double" oldugu icin set methodunun data type da "double" olur =>   public void setStdGpa(double gpa){ this.stdGpa = gpa; }
+
+           -Baska bi class'dan obje olusturunca :Ve objeyi kullanarak variable'ları cagırdıgımızda class icindekiler okur
+              Ama olusturdugumuz obje ile variable'larda degisiklik yapmak istedigimizde asıl class'dakiler ile degil
+              olusturdugumuz obje üzerinde degisiklik yapar, asıl clastaki variablelar degismez.
+              Degisim classda degil objede olur.
+
+
+   27-)             "Abstraction"
+
+        1)Sometimes no child uses the implementation from the parent class, therefore
+          the body part of the method in parent class is being unusable.
+          If something is unusable we do not want to type it.
+          If you do not type the body of a method, you will have "method without body"(Like angels),
+          it is called "Abstract Method"
+
+       2)"Concrete Methods"(Methods with body) focus on 2 things; i)What to do ii)How to do
+         "Abstract Methods" focus on just "What to do"
+
+       3)If you make a method "abstract", it will be mandatory to override for all child classes
+
+
+       4)"Abstract Methods" can be created just in "Abstract Classes"
+          To make a Class abstract put "abstract" keyword between "access modifier" and "class" keyword
+
+       5)When you remove "method body" you have to use "abstract" keyword between the "access modifier" and the "return type" of the method
+
+       6)It is impossible to create "object" from an "abstract class" but it does not mean "abstract classes" do not have "constructors"
+          They have "constructors" but "constructors" are not used to create objects
+
+       7)"Abstract Classes" can have "concrete methods" as well.
+
+       8)"Concrete Methods" may or may not be overridden by Child Classes
+
+       9)"Abstract Methods" cannot be put into a non-abstract class
+
+                  ---------
+       -Parent class'a koydugumuz methodun body'i hicbir child tarafından kullanılmayacaksa yazmamız gereksizdir.
+       -Method var ama body'si yoksa bunlara "abstract method" denir.
+       *Abstac Method yapmak icin: 1- Methodun body'sini silmeliyia
+                                   2- access modifiar'dan sonra "abstract" keyword'unu yamalıyız.
+                                   3- "aabstact method"'lar "abstract class"'lar icinde olmalıdır.
+
+       *abstract classlarda "Concrete Methods" ve  "Abstract Methods" olabilir.
+         "Concrete Methods" body'i olan classlara denir.
+       *Parent'a abstract yapınca "abstract methodlar" var ise:
+       i) child clss'ı abstract yapılmalı:ör:public abstract class Mammal extends Animal{
+        VEYA
+       ii) parent class'daki tüm "abstract method"ları override etmelisiniz.ör:sag tıkla=> generate =>Override
+         @Override
+        public void eat() {
+          System.out.println("Cats eat...");
+        }
+            /*
+          Normally child class must override all "abstract methods" from the parent class.
+            Even Mammal Class did not override anything from the Animal Class, no complain.
+
+            Because "Overriding abstract methods from parent" is mandatory just for "Concrete Classes"
+
+            "Overriding abstract methods from parent" is NOT mandatory for abstract classes
+
+
+            If you want you can ovverride abstract methods from parent Animal to Mammal, it is optional.
+
+             */
+
+        *Bir method parent classta abstrac method  ise tüm child classlar onu mutlaka kullanmak zorunda.(override yaparak kullanır)
+         Bu nedenle her hangi bir fonksiyonu "chid class" icin mecburu yapmak isterseniz o methodu "abstract" yapmalıyız.
+
+
+   28-)       "interface"
+
+          * Atomic olsun diye "parent" classı parcalayıp farklı fonksiyomlar icin farklı parent classlar olusturup ,
+           child classı da onlara baglamak istesek birden fazla parent olacagından dolayı java kabul etmez.
+           Cünkü java "multible ınheritance"ı desteklemez. Fakat java "interface" diye yeni bir yapı olusturdu bu yapıyı da
+           "multible inheritance"a müsade etti.
+
+          * Bir classı bir interface'in child'ı yapmak icin "implements" keywordu kullanılmalı
+            ör: public class Honda implements Ac, Brake, Engine {
+
+          *interface olunca methodlara body koyulamaz, kabul etmez.
+          ör:public void ecoEngine();
+
+          *interface'lerde abstract method olustururken "abstract" keyword kullanmaya gerek yoktur.
+          ör:  public abstract void ecoEngine(); => yerine  => public void ecoEngine();
+
+          *interface'lerdeki tüm methodlar java tarafından otomatik olarak "public" kabul edilir, bu nedenle o methodlar icin
+           access modifier olarak "public" yazmaya gerek yoktur.(yazsakta sıkıntı olmaz)
+            ör: void ecoEngine();
+             public abstract void ecoEngine(); ile void ecoEngine(); aynı anlama gelir.
+          *interface'lerdeki tüm metodlar "abstract" oldugu icin interface'lere "fully abstraction" (tam abstract) denir.
+           "abstract class"larda "abstract method" ve "concrete method" bir arada kullanıldıgı icin "abstract class"lara
+           "fully abstraction" denmez, yani yarım abstacttır.
+
+           * To create "concrete method" in an interface you have 2 potions
+              i) Use "default" keyword     ii) Use "static" keyword
+           - interface'lerde normalde  "concrete method(body'i olan)" koymamıs java ama developerların istegi üzerine koymus
+             ama "defoult" keywordu kullanmak sartıyla, kullanmassak hata verir. Bu istisnai bir durumdur.
+             ör:  public default int calculate(){
+                   return 1200;
+                  }
+            -"static" keyword kullanarakta interfacelerin icinde body'si olan methodlar üretilebilir, bu da istisnai bir kullanımdır.
+            ör: public static String update(String str){
+                return str + "!";
+                }
+
+             *"abstract methodlar" sadece ne yapılacagını söyler(what to do)
+              "concrete method"lar ne yapılacagını (what to do) ile birlikte nasıl(How to do) da söyler.
+
+              -interface'ler bir yapılacak isler listesidir.(To do list)
+            *"multible parent interface" kullandıgınızda aynı method isii ile birden fazla method olusturursanız bu method'ların
+             return type'ları aynı olmalıdır..Aksi takdirde hata verir.
+             --
+                variable
+             *iterface'lerdeki tüm variable'lar otomatik olarak(defoult) "public"tir.
+             *iterface'lerdeki tüm variable'lar otomatik olarak(defoult) "final"tir.Olusturdugumuz variable'la deger ataması
+             yapmazsak sikayet eder java degr ataması yapınca sikayet ortadan kalkar, "final" oldugunu burdan anlıyoruz(atanan deger degistirilemezdi finalda).
+             ör: int price = 2300;
+             *iterface'lerdeki tüm variable'lar otomatik olarak(defoult) "static"tir.
+
+            note:public static final int price = 2300; seklinde de yazabiliriz ama intellj "public static final" kısmını silik yazar yani yazmasanda olur demektir.
+
+            * multiable interface parent oldugunda aynı isimle variable olusturulabilir parent classlarda,
+              java'nın aklı karısmaz cünkü variable cagırıken class ismiyle cagırdıgımız icin hangisini kullanacagını bilir java.
+
+            *multiable interface parent oldugunda aynı isimle ve aynı data type ile VEYA aynı isim farklı data type ile variable
+             olustursak parent classlarda,gene problem olmaz.
+
+             NOT: interface'lerden object olusturulamaz. Cünkü interface'lerde constructor yoktur.
+             "abstract class"larda class oldukları icin constructor vardır. Ama constructor'lar abstract class'larda object olusturamazlar.
+       --------------------------------------------------------------------------
+
+          * Child      Parent
+            Class =>  Interface   => implements
+            Class =>  Class       => extends
+            Interface = Interface == extends
+            Interface => Class    => mumkün degil
+            -------------------------------
+
+
+  29-)     INTERVİEW!!!! ABSTRACT CLASS İLE INTERFACE'IN FARKI NEDİR?
+
+            1- Method
+             "abstract class" hem abstract hem de concrrete method'lar icerebilir.
+             "interface"ler ise sadece abstract method'lar icerir.
+             Ama istersek interface'ler icinde de "defoult" ve "static" keyword'leri kullanarak concrete method lar olusturabiliriz.
+
+           2- Variable
+             "abstract class"larda normal class'lardaki gibi her türlü variable olusturulabilir.
+             "ınterface"lerde ise variable'lar public ,static ve final olmak zorundadır.
+
+           3- Inheritance
+             "abstract class"lar class oldukları icin multible inheritance'a müsade etmezler.
+             "interface" ler ise multible inheritance'i desteklerler.
+
+           4- Object creation
+             "abstract class"larda constructor vardır ama object olusturmada kullanılmazlar.
+             "interface" lerde ise constructor olmadıgından object olusturulamaz.
+
+
+ INTERVİEW!!!!    Soru: Object Oriented Programing Language prensibleri nelerdir?
+                  i- inheritance  ii- polymorphism  iii- encapsulation iv- abstraction
+                            ***************************************************
+
+
+
+           1)An interface cannot have "concrete method"
+           2)All methods in an interface are "public" and "abstract" as default
+             Because of that; even you don't declare the methods "public" and "abstract", they will be "public" and "abstract"
+             "public abstract void digital();" and "void digital();" are same
+           3)If "parent interfaces" have methods with the same name, overriding just one of them will be enough.
+           4)"parent interfaces" cannot have methods with the same name and the different return types.
+              If you do that, Java will give you compile time error
+           5)Variables in an interface are "public", "static", and "final"
+             "public static final int price = 2300;" and "int price = 2300;"
+           6)Variables in interfaces are "static" default, therefore no need to create object to access
+             variables in interfaces.
+           7)Whenever you need to call any variable use "Interface Name" to call
+
+           8) "Class" parent of another "Class" ==> extends
+           "Interface" parent of another "Interface" ==> extends
+
+           "Interface" parent of "Class" ==> implements
+           "Class" parent of "Interface" ==> impossible. ==> An "Interface" can have "just" Interface as parent
+              ---------------
+
+   30-)   "final"
+                "final" keyword is very important in Java
+                    1)"final" keyword can be used for variables
+                      public final int age = 12;
+                      If you make a variable "final" you cannot change its value
+                      "final variables" must be initialized.
+
+                    2)"final" keyword can be used for methods
+                      "final method" body cannot be updated
+
+                    3)"final" keyword can be used for classes
+                      "final classes" cannot have child classes
+
+                Note: "abstract classes" have something to do for child classes, if there is no child class, having "to do list" is not sensible.
+                      "final classes" cannot have child classes, therefore Java does not allow to make an abstract class final.
+
+                Note:  "final method" body will be under protection by Java, because it should not be updated.
+               But abstract methods don't have body, Java will look for the body to protect when it could not find it will complain
+
+

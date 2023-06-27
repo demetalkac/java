@@ -26,6 +26,33 @@ package day23encapsulationabstraction;
        8)"Concrete Methods" may or may not be overridden by Child Classes
 
        9)"Abstract Methods" cannot be put into a non-abstract class
+
+                  ---------
+       -Parent class'a koydugumuz methodun body'i hicbir child tarafından kullanılmayacaksa yazmamız gereksizdir.
+       -Method var ama body'si yoksa bunlara "abstract method" denir.
+       *Abstac Method yapmak icin: 1- Methodun body'sini silmeliyia
+                                   2- access modifiar'dan sonra "abstract" keyword'unu yamalıyız.
+                                   3- "aabstact method"'lar "abstract class"'lar icinde olmalıdır.
+
+       *abstract classlarda "Concrete Methods" ve  "Abstract Methods" olabilir.
+         "Concrete Methods" body'i olan classlara denir.
+       *Parent'a abstract yapınca "abstract methodlar" var ise:
+       i) child clss'ı abstract yapılmalı:ör:public abstract class Mammal extends Animal{
+        VEYA
+       ii) parent class'daki tüm "abstract method"ları override etmelisiniz.ör:sag tıkla=> generate =>Override
+         @Override
+        public void eat() {
+          System.out.println("Cats eat...");
+        }
+
+        *Bir method parent classta abstrac method  ise tüm child classlar onu mutlaka kullanmak zorunda.(override yaparak kullanır)
+         Bu nedenle her hangi bir fonksiyonu "chid class" icin mecburu yapmak isterseniz o methodu "abstract" yapmalıyız.
+
+
+
+
+
+
      */
 
 
