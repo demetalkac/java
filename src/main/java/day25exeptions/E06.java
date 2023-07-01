@@ -16,6 +16,7 @@ public class E06 {
     }
 
     //Create a method i)Find the length of the String ii)Convert the String to an integer iii)Divide the integer by a given number
+    //1. yol
     public static void doCombo(String str, int num){
 
         try {
@@ -39,6 +40,7 @@ public class E06 {
 
     }
 
+    //2. yol
     public static void doCombo2(String str, int num){
 
         try {
@@ -57,5 +59,34 @@ public class E06 {
         System.out.println("Execution did not stop");
 
     }
+
+    //3. yol
+    public static void doCombo3(String str, int num){
+        int length =0;
+        int intStr =0;
+        double result =0;
+        try {
+            length = str.length();
+            System.out.println(length);
+
+             intStr = Integer.valueOf(str);
+            System.out.println(intStr);
+
+             result = intStr / num;
+            System.out.println(result);
+        }catch(NullPointerException e){
+            System.out.println("NullPointer'a özel" +e.getMessage());
+        }catch (Exception e){
+            System.out.println("Diger tüm exceptionlar icin..");
+        }
+
+    }
+   /*
+   note: 1- Aralarında "parent-child" relationship olan Exception Class'ları multible catch'lerle kullanmak isterseniz
+           "child" olan önce kullanımalıdır, aksi takdirde hata verir.
+          2-  Aralarında "parent-child" relationship olan Exception Class'ları multible catch'lerle kullanmak isterseniz
+             sıralamanın bi önemi yoktur.
+    */
+
 
 }

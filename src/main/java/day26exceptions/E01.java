@@ -7,7 +7,7 @@ public class E01 {
 
         try {
             printAge(-25);
-        }catch(IllegalArgumentException e){
+        }catch(IllegalArgumentException e){  //printAge() methodunda "IllegalArgumentException" exceptionunu kullandıgımız icin burda da onu kullanıyoruz.
             System.out.println("Age is not valid");
         }
 
@@ -25,6 +25,12 @@ public class E01 {
         }
         System.out.println(age);
     }
+  // note:IllegalArgumentException: uygun olmayan deger hatası demek. örnegin yas icin olan bir methodda eksi bir deger girerse kullanıcı
+  //        aplicationa uygun olmayan bir deger girmis olur. Bunu da "throw"  yani exception atarak engelleyebiliriz.
+ //         Yani burda biz bilerek yanlıs bir deger girildiginde exception atarak uygulamanın durmasını saglamıs oluyoruz.
+
+
+
 
     //Create a method to print worker's age
     public static void printWorkerAge(int age ){

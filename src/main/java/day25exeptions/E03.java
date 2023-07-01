@@ -8,14 +8,14 @@ public class E03 {
         System.out.println(r1);// 9
 
         int r2 = getNumOfChars("");
-        System.out.println(r2);
+        System.out.println(r2); //0
 
         int r3 = getNumOfChars(null);//NullPointerException: If  you use "length()" method with "null" you will get NullPointerException
         System.out.println(r3);
 
     }
 
-    //Create a method to find the number of characters in a String
+    //Create a method to find the number of characters in a String(string de bulunan karakterlerin sayısını bulan method)
     public static int getNumOfChars(String str){
         int numOfChar = 0;
 
