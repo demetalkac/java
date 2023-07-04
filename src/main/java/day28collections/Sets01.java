@@ -22,6 +22,36 @@ public class Sets01 {
                   i)Create a HashSet
                   ii)Add elements into the HashSet
                   iii)Convert HashSet to TreeSet
+      note: Tekrarsız elemanları natural order da depolamak icin TreeSet kullanmak mantıklıdır ama TreeSet ler cook yavas calıstıgı
+            icin biz, elemanları önce HashSet ile depolarız sonra HashSet'i TreeSet'e cevirerek
+            TreeSet'in yavas olma problemini atmıs oluruz.
+
+                  ***************************
+                    "HashSet"
+               HashSet<String> emails = new HashSet<>();
+      Hash bir tekniktir, birbirine benzemeyen code'lar üretür bu code'lar data'yı unique yapar.
+     -HasSet'lere coklu ama tekrarsız data depolamak istedigimizde ihtiyac duyarız.(ögrenci numaraları gibi)
+     -Set'lere var olan elemanı eklersek hata vermez, son ekleneni var olan data'nın üstüne yazar(yani overwrite yapar).
+     -"null" element kabul eder.
+     -HashSet'ler eklenen elemanların sıralaması ile ugrasmaz.Sıralama ile alakalı zaman harcamaz buyüzden cok hızlı calısır.
+     -HashSet'ler index kullanmaz, cünkü her calısmada elementin yeri farklı olabilir, rastgele sıralar.
+                 *** HashSet'leri:1) Tekrarsız elemanlar gerektiginde
+                                  2) Sıralama önemli olmadıgında
+                                  3)Hız cok önemli ise, kullanılır.
+
+                          ***
+
+                    "LinkedHashSet"
+             LinkedHashSet<Integer> ssn = new LinkedHashSet<>();
+    -LinkedHashSet'ler elemanları ekleme sırasına(Insertion Order) göre yerlestirirler.
+    -LinkedHashSet elemanları sıraşlamada zaman harcadıgı icin HashSet'lere göre yavas caalısırlar
+
+                     ***
+                  "TreeSet"
+            TreeSet<Integer> nums1 = new TreeSet<>();
+     -TreeSet tekrarsız elemanları "alfabetik" veya "kücükten büyüge"(natural Order) dizer.
+     -TreeSet coooook yavas calısır(elemanları natural Order a göre sıraya koydugu icin).
+     -TreeSet does not accept "null" as element
      */
 
     public static void main(String[] args) {
@@ -76,6 +106,9 @@ public class Sets01 {
         System.out.println(nums1);//[ -5, 5, 17, 23, 41, 67]
 
         Long middle = LocalTime.now().toNanoOfDay();
+        System.out.println(middle - starting);
+
+
 
         //2.Way: Faster
         HashSet<Integer> nums2 = new HashSet<>();
@@ -85,13 +118,13 @@ public class Sets01 {
         nums2.add(41);
         nums2.add(-5);
 
-        Set<Integer> perfectNums = new TreeSet<>(nums2);
+        Set<Integer> perfectNums = new TreeSet<>(nums2); //HashSet'i TreeSet'e cevirmek icin bu kodu yazdık.
         System.out.println(perfectNums);//[ -5, 5, 17, 23, 41, 67]
 
         Long ending = LocalTime.now().toNanoOfDay();
 
-        System.out.println("1.Way: " + (middle-starting));
-        System.out.println("2.Way: " + (ending-middle));
+        System.out.println("1.Way: " + (middle-starting)); //5998100
+        System.out.println("2.Way: " + (ending-middle));   //0 bir nanosecenttan az oldugu icin 0 verdi cok hızlı.
     }
 
 }

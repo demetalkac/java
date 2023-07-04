@@ -66,6 +66,13 @@ public class E01 {
         -exception'ı biz üretirsek methodumuzda ,istersek try-catch ile method dısında cözüm üretebiliriz.
     -Method icinde exception nicin üretilir? -APLİCATİONUN MİMARLARININ OLUSTURDUGU KURALLARI KOYMAK İCİN
                                              -GÜNLÜK HAYATTA YASAK AMA JAVA İCİN YASAK OLMAYAN SEYLER İCİNDE EXCEPTİON ATILIR.(18 YAS ALTI CALISMA IZNI OLMAMASI GİBİ)
+
+
+
+              "Compile Time Exception"(Checked Exception)
+       1-"FileNotFoundException" : "FileNotFoundException" is the child of "IOException"
+       2- "IOException" : IOException is parent exception. "IOException" is related with all possible "input-output" issues
+
      */
 
     public static void main(String[] args) {

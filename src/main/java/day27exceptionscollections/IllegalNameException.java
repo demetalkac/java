@@ -7,5 +7,5 @@ public class IllegalNameException extends RuntimeException{
         super(message);
     }
 
-
+// burda olusturdugumuz exception'ı "CustomExceptions01" classında kullandık.
 }

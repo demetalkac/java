@@ -920,10 +920,12 @@ NOT: "default"  da “package privide” da denir.
           * Atomic olsun diye "parent" classı parcalayıp farklı fonksiyomlar icin farklı parent classlar olusturup ,
            child classı da onlara baglamak istesek birden fazla parent olacagından dolayı java kabul etmez.
            Cünkü java "multible ınheritance"ı desteklemez. Fakat java "interface" diye yeni bir yapı olusturdu bu yapıyı da
-           "multible inheritance"a müsade etti.
+           "multible inheritance"a müsade etti.(Cünkü methodun body'i bos interface'lerde.)
 
           * Bir classı bir interface'in child'ı yapmak icin "implements" keywordu kullanılmalı
             ör: public class Honda implements Ac, Brake, Engine {
+
+               "" methodlar"
 
           *interface olunca methodlara body koyulamaz, kabul etmez.
           ör:public void ecoEngine();
@@ -955,10 +957,18 @@ NOT: "default"  da “package privide” da denir.
               "concrete method"lar ne yapılacagını (what to do) ile birlikte nasıl(How to do) da söyler.
 
               -interface'ler bir yapılacak isler listesidir.(To do list)
+                    "method"
+             *"multible parent interface" kullandıgınızda aynı method isii ile birden fazla method olusturulunca
+               rutern type'ları aynı olunca , java sıkıntı yapmaz.
+               ör: public void run(); farklı parentlerde aynı method kullanılınca child da sıkıntı olmaz.
+
             *"multible parent interface" kullandıgınızda aynı method isii ile birden fazla method olusturursanız bu method'ların
              return type'ları aynı olmalıdır..Aksi takdirde hata verir.
+
+            ör: Ama parenten birinde "public void price();" digerinde "public int price();" olunca child class bu methodu kullanmak
+                isteyince sorun cıkar. Onedenle parentler de aynı isim aynı return type ile method olmalı.
              --
-                variable
+                    "variable"
              *iterface'lerdeki tüm variable'lar otomatik olarak(defoult) "public"tir.
              *iterface'lerdeki tüm variable'lar otomatik olarak(defoult) "final"tir.Olusturdugumuz variable'la deger ataması
              yapmazsak sikayet eder java degr ataması yapınca sikayet ortadan kalkar, "final" oldugunu burdan anlıyoruz(atanan deger degistirilemezdi finalda).
@@ -1050,7 +1060,22 @@ NOT: "default"  da “package privide” da denir.
                 Note:  "final method" body will be under protection by Java, because it should not be updated.
                But abstract methods don't have body, Java will look for the body to protect when it could not find it will complain
 
-    31-)    "Exception"
+
+    31-)          "final" , "finally" , "finalize" nedir acıklayınız:
+
+                  "final": Bir keyword'dür. verable,method , class icin kullanılır....
+                  "finally": -Bir "code block"dur.(süslü parantez icine yazıyoruz)
+                            -"try-catch" veya sdece "try" ile de kullanılabilir.
+                            - "finaly" code block icine yazılan code'lar her halukarda calıstırılır(ister exception olsun ister olmasın, her zaman calısır)
+                             Mesela Database ile connection'ı kesmek herhalukarda yapılması gereken bir fiildir.Bunu "finaly" ile yaparız.
+                            -"finaly" code blockunun en sonunda kullanılır.
+                 "finalize" : Bir methoddur. Bu method java tarafından datalar imha edilmeden cagrılır, bu method dataları imha edilecek
+                             duruma getirir ve daha sonra "Garbage Collector" bu data'ları imha eder.
+                             -"finalize" methodunu Java Developer'lar da cagırabilir ama Java kendi bildigini yapar.
+
+
+
+    32-)    "Exception"
 
              1)"Exception" means un-expected issues in code execution
                2)There are two ways to work with Exceptions
@@ -1088,6 +1113,8 @@ NOT: "default"  da “package privide” da denir.
                          Exception 2'ye ayrılır.
                          i-RunTime Exception(diger ismi Unchecked exception)
                          ii-CompileTime Exception(diger ismi Checked exception)
+
+                          i-RunTime Exception
                1-"AritmeticExeption" :matematik ile ilgili yapılan yanlıslıkları kapsar. Bunu if-else ile de cözebiliriz fakat
                                       matematik kurallarını bilmemize gerek yok bu nedenle exceptionlarda kullanımı tavsiye edilmez
                                       onun yerine try-chatch kullanırız.Handle Exception by using try-catch block
@@ -1114,4 +1141,259 @@ NOT: "default"  da “package privide” da denir.
                -exception'ı biz üretirsek methodumuzda ,istersek try-catch ile method dısında cözüm üretebiliriz.
            -Method icinde exception nicin üretilir? -APLİCATİONUN MİMARLARININ OLUSTURDUGU KURALLARI KOYMAK İCİN
                                                     -GÜNLÜK HAYATTA YASAK AMA JAVA İCİN YASAK OLMAYAN SEYLER İCİNDE EXCEPTİON ATILIR.(18 YAS ALTI CALISMA IZNI OLMAMASI GİBİ)
+
+                    ii-"Compile Time Exception"(Checked Exception)
+             1-"FileNotFoundException" : "FileNotFoundException" is the child of "IOException"
+             2- "IOException" : IOException is parent exception. "IOException" is related with all possible "input-output" issues
+
+             *********************************************************************************
+                   1)If you want to execute a code for every scenario, use "finally" block after "try" body
+                   2)"try" can be used like i) try + single catch  ii)try + multiple catch  ii)try + single catch + finally
+                                            iv)try + multiple catch + finally   v)try + finally
+                                            Note: "try" cannot be used alone
+                   3)"ArithmeticException", "NullPointerException", "ArrayIndexOutOfBoundsException", "NumberFormatException",
+                     "StringIndexOutOfBoundsException", "IllegalArgumentException"  are displayed on the console after I click on "Run" button
+                     therefore those are called "RunTime Exception"
+                   4)There is "Compile Time Exception", they will be displayed before clicking on the "Run" button.
+                     Therefore, they are called "Compile Time Exception"
+   *********************************************************************************
+
+                    "final" , "finally" , "finalize" nedir acıklayınız:
+
+                   "final": Bir keyword'dür. verable,method , class icin kullanılır....
+                   "finally": -Bir "code block"dur.(süslü parantez icine yazıyoruz)
+                             -"try-catch" veya sdece "try" ile de kullanılabilir.
+                             - "finaly" code block icine yazılan code'lar her halukarda calıstırılır(ister exception olsun ister olmasın, her zaman calısır)
+                              Mesela Database ile connection'ı kesmek herhalukarda yapılması gereken bir fiildir.Bunu "finaly" ile yaparız.
+                             -"finaly" code blockunun en sonunda kullanılır.
+                  "finalize" : Bir methoddur. Bu method java tarafından datalar imha edilmeden cagrılır, bu method dataları imha edilecek
+                              duruma getirir ve daha sonra "Garbage Collector" bu data'ları imha eder.
+                              -"finalize" methodunu Java Developer'lar da cagırabilir ama Java kendi bildigini yapar.
+
+    NOT:  package day26exceptions;  class E03readTheText icinmde reed the text var.ve bu classta kod yazarken ortaya cıkan exception var.
+
+
+       -When you use parent and child exception classes together in a try-catch,
+          child classes must come first otherwise Java gives error.
+
+       -When you encounter a "Compile Time Exception", you have 2 options
+            i)Using "throws" in method signature line
+                *Java will throw exception and stop the execution
+            ii)Using "try-catch" block
+                *Java will execute whatever you typed inside the catch body and does not stop the execution
+
+    33-)        What is the difference between "throw" and "throws" keywords?
+                     *** i)"throw" keyword is used to throw any Exception in anywhere inside the method body
+                           "throws" keyword is used in the method signature line
+                     ii)By using "throws" keyword you can declare multiple exceptions
+                        After using "throw" keyword you can declare just one exception
+                     iii)After using "throw" keyword, you have to create an Exception object
+                         After using "throws" keyword, you will tell just the name Exception class
+
+    34-)           EXCEPTION OLUSTURMA:
+                    SORU: Costum Exception nedir ve nasıl üretilir?
+                    -Java kendi kurallarını exception olusturarak, developerların bu java kurallarına uymasını saglamıstır.
+                    -Bizde application üretirken kendi exceptionumuzu olusturarak diger developerların bizim kurallara uymasını saglamıs olusruz.
+                     Bizim ürettigimiz exceptionlar'a "Costum Exception" denir.
+                    -Custom exceptionlar da  "Run time Exception" ve"Compile Time Exception" olabilir.
+                    -Custom "RuntimeException" üretmek icin "extends RuntimeException" seklinde yazarız.
+                    -Custom "CompaileTimeException"  üretmek icin "extends Exception" yazılır.
+
+
+              A-) "Compile Time Exception"(Checked Exception) OLUSTURMA (=>package day27exceptionscollections; de IllegalGradeException ve IllegalNameException classlarında)
+                - To make a class "Exception Class" make it child of the "Exception Class" by using "extends" keyword
+                 -If you use "extends Exception" it will be "Compile Time Exception"(Checked Exception)
+             - Bütün exeption'ların sonunda "exception" kelimesi vardır o nedenle kendimizin ürettigi exception class'ın
+               isminin sonundada "exception"kelimesi kullanmalıyız. ör: IllegalGradeException
+               Ve "extends" etmeliyiz "Exception"sın parent clasına.
+             -constroctor olustur ve obje olustururken excepsınımız ile ilgili mesajıda kullanmak icin icine "String message" koydum.
+              Bununda parent classına gidip alır : "super(message);" bunu parentdaki message iceren constructor'ı kullan.
+
+             B-) RuntimeException OLUSTURMA:
+               When you "extend" to "RuntimeException Class",your "Custom Exception" will be "RuntimeException"
+               public class IllegalNameException extends RuntimeException{
+               }
+
+
+   35-)   "COLLECTION"
+           Collections are for storing multiple data in the same data type.
+            Collections are flexible in length.
+            Collections have many useful methods.
+
+              There are 3 main Collections: i)List ==> a)ArrayList:Successful in "search operations" but not good at "adding" and "removing"
+                                                       b)LinkedList:Successful in "adding" and "removing" not good at "search operations"
+                                            ii)Queue ==> a)PriorityQueue  b)Deque
+                                            iii)Set ==> a)HashSet  b)LinkedHashSet  c)TreeSet
+                  ******************************
+             1-List:Coklu ve tekrarlı data depolamak istedigimizde ihtiyac duyarız
+                    Bir okuldaki ögrenci isimleri
+             2-Set: Coklu ama tekrarsız data depolamak istedigimizde ihtiyac duyerız.
+                   Bir okuldaki ögrenci id'lerini depolamak icin
+             3-Queue:FIFO veya LIFE gerektiginde kullanırız.
+                  Bir bankada islem yapma sırasını bekleyen müsterileri sıralamak icin
+
+                       ----
+                        A- "LIST"
+                       "LinkedList"
+
+              -ArrayList'ler index kullanır ama index kullanmak ,eleman ekleme ve eleman silme islemlerinde
+                   bize zaman kaybettirir. Cünkü bircok elemanın re-index edilmesi gerekir.
+                         "LinkedList"
+               1 -)LinkedList:Elemanlar 2 bölümden olusur; data ve pointer. "Linked"  demek birbirine baglanmıs demek.
+                          Element yerine LinkedList de "node" olarak adlandırılır.
+                          Her node'u bir pointer(ok ile) ile diger node'a baglar.En sondaki pointer'a "tail"(kuyruk) denir.
+                          En bastaki node'u gösteren sadece bir ok(pointer) var. Ona da "head" denir.
+                2-)LinkedList’ler eleman silme ve eklemede basarılıdırlar.Bu nedenle elemen silme ve eklemede LinkedList ler kullanılır.
+                Örnegin bir müzenin günlük ziyaretcileri icin kullanılabilir, sil-ekle islemi tekrar tekrar olur. Bu islemi hızlı olması gerekir.
+                3 -)LinkedList’ler eleman arama islemlerinde basarısızdırlar.
+                4-) 2. ve 3. maddelerden dolayı eleman silme ve ekleme islemlerinin cok yapılacagı durumlarda LinkedList kullanılmalıdır.
+                5-)ArrayList'ler index kullanır LinkedList’ler index kullanmaz.
+                6-) index kullanmak eleman bulma islemlerinde cok basarılıdır. Bu yüzden eleman bulma islemlerini yapacagımız islemlerde ArrayList kullanmalıyız.
+                7-) LinkedList’ler eleman silme ve eklemede basarılı oldukları icin  ekleme ve silme ile ilgili fazla method icerir.
+                    addFirst(), addLast(), removeFirst(), removeLast(), removeFirstOccurrence()......
+
+
+              -ArrayList eleman bulma (search) islemlerinde cok basarılıdır, cünkü index kullanarak bulur.
+               LinkedList ise  eleman (elemenın adressini) bulma(search) bulmada basarısızdır, cünkü index kullanmadıgı icin bastan baslar
+                tek tek elementleri kontrol eder taki istedigi elementi bulana kadar, buda zana kaybı demek, hızını azaltır.
+              ör: "Süzlük" ile ilgili bir applicationda ArrayList kullanmak daha mantıklı.kelimeler bir kere koyulur ve search yapılır daha cok.
+                  Sehir isimleri, bölgeler gibi aplicationlarda ArrayList kullanmak daha iyi olur, sehir isimleri kolay kolay degismez ve
+                  sehirler ile ilgili bircok konuda arama islemi yapılabilir.
+
+         LinkedList Methodları:
+
+               LinkedList<String> visitors = new LinkedList<>();
+               visitors.add("Tom");
+               visitors.add("Jane");
+               visitors.add("Mary");
+               visitors.add("Carl");
+               visitors.add("Ali");
+
+               System.out.println(visitors);// [Tom, Jane, Mary, Carl, Ali]
+
+         1) add()
+         2) addLast()
+         3) addFirst()
+         4) addAll()
+         5) remove() :method removes the "first occurrence" of the object
+         6) removeFirst()
+         7) removeFirstOccurrence()
+         8) removeLast()
+         9) pop() method ilk elementi siler ve bize sildigimiz elementi verir.Bu method removeFirst() methodu ile aynı isi yapar.
+                Eger list bos ise(emty) NoSuchElementException atar.
+         10) peek() methodu ilk elemanı verir ve elemanı silmez listten. Eger list bos(emty) ise "null" döndürür.
+         11) poll() methodu işlk elementi verir ve listten ilk elemanı siler. pop() methodundan farkı ise; list bos ise exception
+                 vermez "null" verir.
+
+         12) element() methodu: first elementi verir ve list'ten silmez. Eger list bos ise "NoSuchElementException" exception atar.
+                                     Retrieves, but does not remove, the head (first element) of this list.
+                                     Throws: NoSuchElementException – if this list is empty
+
+         ****************************************************************************
+                    B-  "SET"
+
+            1)Sets are for storing multiple non-primitive data in the same data type
+            2)Sets are for storing unique data like email addresses, SSN, Phone Numbers in a Country, ...
+            3)There are 3 different Sets: i)HashSet: Uses "Hashing Technique".
+                                                     It does not put the elements in any order.
+                                                     HashSet accepts just a single "null" as element
+                                          ii)LinkedHashSet: Puts the elements in "Insertion Order"
+                                          iii)TreeSet: Puts the elements in "Natural Order"(Ascending Order in numbers, Alphabetical Order in Strings)
+                                              TreeSet is so slow in adding elements
+
+                  ***************************
+                    "HashSet"
+               HashSet<String> emails = new HashSet<>();
+      Hash bir tekniktir, birbirine benzemeyen code'lar üretür bu code'lar data'yı unique yapar.
+     -HasSet'lere coklu ama tekrarsız data depolamak istedigimizde ihtiyac duyarız.(ögrenci numaraları gibi)
+     -Set'lere var olan elemanı eklersek hata vermez, son ekleneni var olan data'nın üstüne yazar(yani overwrite yapar).
+     -"null" element kabul eder.
+     -HashSet'ler eklenen elemanların sıralaması ile ugrasmaz.Sıralama ile alakalı zaman harcamaz buyüzden cok hızlı calısır.
+     -HashSet'ler index kullanmaz, cünkü her calısmada elementin yeri farklı olabilir, rastgele sıralar.
+                 *** HashSet'leri:1) Tekrarsız elemanlar gerektiginde
+                                  2) Sıralama önemli olmadıgında
+                                  3)Hız cok önemli ise, kullanılır.
+
+                          ***
+
+                    "LinkedHashSet"
+             LinkedHashSet<Integer> ssn = new LinkedHashSet<>();
+    -LinkedHashSet'ler elemanları ekleme sırasına(Insertion Order) göre yerlestirirler.
+    -LinkedHashSet elemanları sıraşlamada zaman harcadıgı icin HashSet'lere göre yavas caalısırlar
+
+                     ***
+                  "TreeSet"
+            TreeSet<Integer> nums1 = new TreeSet<>();
+     -TreeSet tekrarsız elemanları "alfabetik" veya "kücükten büyüge"(natural Order) dizer.
+     -TreeSet coooook yavas calısır(elemanları natural Order a göre sıraya koydugu icin).
+     -TreeSet does not accept "null" as element
+               **************
+
+    !!!! INTERWİEV Question: If you need to store "unique elements" in "natural order", which collection do yo use?
+                  Answer: TreeSet
+        Question: As you know, TreeSet is so slow in adding elements, how can you improve your code?
+                  i)Create a HashSet
+                  ii)Add elements into the HashSet
+                  iii)Convert HashSet to TreeSet
+      note: Tekrarsız elemanları natural order da depolamak icin TreeSet kullanmak mantıklıdır ama TreeSet ler cook yavas calıstıgı
+            icin biz, elemanları önce HashSet ile depolarız sonra HashSet'i TreeSet'e cevirerek
+            TreeSet'in yavas olma problemini atmıs oluruz.
+
+        //1.Way: Slower
+        Long starting = LocalTime.now().toNanoOfDay();
+        TreeSet<Integer> nums1 = new TreeSet<>();
+        nums1.add(23);
+        nums1.add(5);
+        nums1.add(17);
+        nums1.add(67);
+        nums1.add(41);
+        nums1.add(-5);
+        //nums1.add(null);//TreeSet does not accept "null" as element
+        System.out.println(nums1);//[ -5, 5, 17, 23, 41, 67]
+
+        Long middle = LocalTime.now().toNanoOfDay();
+        System.out.println(middle - starting);
+
+        //2.Way: Faster
+        HashSet<Integer> nums2 = new HashSet<>();
+        nums2.add(5);
+        nums2.add(17);
+        nums2.add(67);
+        nums2.add(41);
+        nums2.add(-5);
+
+        Set<Integer> perfectNums = new TreeSet<>(nums2); //HashSet'i TreeSet'e cevirmek icin bu kodu yazdık.
+        System.out.println(perfectNums);//[ -5, 5, 17, 23, 41, 67]
+
+        Long ending = LocalTime.now().toNanoOfDay();
+
+        System.out.println("1.Way: " + (middle-starting)); //5998100
+        System.out.println("2.Way: " + (ending-middle));   //0 bir nanosecenttan az oldugu icin 0 verdi cok hızlı.
+    }
+ *************************************************************************************
+                          C- "QUEUE"
+                 "Queue"
+           Queue<String> wareHouse = new LinkedList<>();
+        1)Queue's are for storing multiple non-primitive data in the same data type
+        2)Queue's are used for FIFO(First In First Out)
+
+       - Queue interface'dır ve bu nedenle object olusturamayız.Queue olusturulurken ya LinkedList veya PriorityQueue ın constructorını kullanabiliriz.
+       -Ilk giren eleman ilk kullanmamız FIFO(First In First Out) gerektiginde Queue en iyi secimdir.
+       -Queue lar elemanları verilen sıraya(ınsertion order) göre dizer.
+       -add(), peek(), poll(), element(), , remove() gibi ilk elemanı ilgilendiren bir cok method vardır.
+       -offer() methodu kapasite kontrolu yapıldıktan sonra eleman ekleme durumlarında kullanılır.Eleman eklenirse true verir ,eklenemedi ise false verir.
+
+                      "Deque"
+             Deque<String> furnitureTruck = new LinkedList<>();
+       -Deque constructor olarak "LinkedList" i kullanır, cünkü parent'ı olarak normal class olarak LinkedList var, digerleri interfase.
+       - Deque's are for storing multiple non-primitive data in the same data type
+       "Deque" means "Double Ended Queue", it works successfully in FIFO and LIFO operations
+       -Yani iki uclu queue demektir.FIFO ve LIFO gerektiginde beraber kullanılır.
+       -removeLastOccurrence(), removeLast(), addFirst(), addLast() gibi ilk ve sona eleman ekleme-silme gibi bircok methoda sahiptir
+
+                     "PriorityQueue"
+               PriorityQueue<String> myQueue = new PriorityQueue<>();
+        -Java kendine göre bir kural belirler ve ona göre elementleri sıraya koyar.Yani yazdıgımız sıraya göre veya alfabetik
+         sıraya göre bir sıra yapmıyor, ama java bir sıra yapıyor fakat kendine göre bir sıra yapıp elemanları yerlestiriyor.
+        -Biz istersek sıralamayı belirleyebiliriz.
 

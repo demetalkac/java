@@ -5,9 +5,34 @@ import java.util.Queue;
 
 public class Queues01 {
 
+
     /*
+
+               "Queue"
+           Queue<String> wareHouse = new LinkedList<>();
         1)Queue's are for storing multiple non-primitive data in the same data type
         2)Queue's are used for FIFO(First In First Out)
+
+       - Queue interface'dır ve bu nedenle object olusturamayız.Queue olusturulurken ya LinkedList veya PriorityQueue ın constructorını kullanabiliriz.
+       -Ilk giren eleman ilk kullanmamız FIFO(First In First Out) gerektiginde Queue en iyi secimdir.
+       -Queue lar elemanları verilen sıraya(ınsertion order) göre dizer.
+       -add(), peek(), poll(), element(), , remove() gibi ilk elemanı ilgilendiren bir cok method vardır.
+       -offer() methodu kapasite kontrolu yapıldıktan sonra eleman ekleme durumlarında kullanılır.Eleman eklenirse true verir ,eklenemedi ise false verir.
+
+               "Deque"
+             Deque<String> furnitureTruck = new LinkedList<>();
+       -Deque constructor olarak "LinkedList" i kullanır, cünkü parent'ı olarak normal class olarak LinkedList var, digerleri interfase.
+       - Deque's are for storing multiple non-primitive data in the same data type
+       "Deque" means "Double Ended Queue", it works successfully in FIFO and LIFO operations
+       -Yani iki uclu queue demektir.FIFO ve LIFO gerektiginde beraber kullanılır.
+       -removeLastOccurrence(), removeLast(), addFirst(), addLast() gibi ilk ve sona eleman ekleme-silme gibi bircok methoda sahiptir.
+
+                              "PriorityQueue"
+               PriorityQueue<String> myQueue = new PriorityQueue<>();
+        -Java kendine göre bir kural belirler ve ona göre elementleri sıraya koyar.Yani yazdıgımız sıraya göre veya alfabetik
+         sıraya göre bir sıra yapmıyor, ama java bir sıra yapıyor fakat kendine göre bir sıra yapıp elemanları yerlestiriyor.
+        -Biz istersek sıralamayı belirleyebiliriz.
+
      */
 
     public static void main(String[] args) {
