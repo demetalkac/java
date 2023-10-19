@@ -257,7 +257,7 @@ NOT: "and" ve "or" bir arada kullanınca karısıklık olmaması icin parantez i
 
 
 
-  15-)     "PassByValue"  ==> day17listpassbyvalue pacgate'nin icinde
+  15-)     "PassByValue"  ==> day17listpassbyvalue package'nin icinde
 
                1) When you use a variable inside a method, Java creates the copy of the variable
                   and uses it inside the method. Java does that to protect the original value of the variables.
