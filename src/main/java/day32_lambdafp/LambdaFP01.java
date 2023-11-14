@@ -31,7 +31,8 @@ public class LambdaFP01 {
     //1) Create a method to find the minimum value which is greater than 7 and even elements from the list
     //1.way:
     public static void getMinGreaterThanSevenEvenNum1(List<Integer> list){
-       Integer min = list.stream().distinct().filter(t-> t%2==0).filter(t-> t>7).sorted().findFirst().get();
+        Integer min = list.stream().distinct().filter(t-> t%2==0).filter(t-> t>7).sorted().findFirst().get();
+        //Note: This code returns Integer because lists work with non-primitive data types
         System.out.println(min); //8
     }
 

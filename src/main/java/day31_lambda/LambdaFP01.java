@@ -35,7 +35,7 @@ public class LambdaFP01 {
 
     public static void main(String[] args) {
 
-        List<Integer> l= new ArrayList<>();
+        List<Integer> l= new ArrayList<>(); //l variable - Arrayobject
         l.add(8);
         l.add(9);
         l.add(131);
@@ -95,19 +95,27 @@ public class LambdaFP01 {
         }
     }
     public static void printEvenElementFunctrional(List<Integer> list){
+        //stream() method takes the elements one by one from the list and send them into the filter
+        // t-> means take the element ---> and then check the elements one by one if it can be divided by 2 with the help of filter() method
+
         list.stream().filter(t-> t%2==0).forEach(t -> System.out.print(t + " "));//t-> t%2==0 the name of that structure is called "Lambda Expression"
     }
 
     //3) Create a method to print the square of odd list elements on the console in the same line with a space between
     //   two consecutive elements (Functional P)
     public static void printSquareOfOddElements(List<Integer> list){
-        list.stream().filter(t -> t%2!=0).map(t-> t*t).forEach(t -> System.out.print(t + " "));
+        //list.stream().filter(t-> t%2 !=0).forEach(t-> System.out.print( t*t + " ")); //this way works as well
+        list.stream().filter(t -> t%2!=0).map(t-> t*t).forEach(t -> System.out.print(t + " "));  //In math operations we use map()
     }
 
     //4)Create a method to print the cube of distinct odd list elements on the console in the same line
     //  with a space between two consecutive elements.
     public static void printCubeOfDistingtOddElements(List<Integer> list){
         list.stream().distinct().filter(t-> t%2!=0).map(t-> t*t*t).forEach(t-> System.out.print(t + " "));
+        //distinct() method takes the unique elements -- eliminate repeated elements
+        // (If there are 2 of the element Java will take only one with the help of distinct() method
+        //And then filter() method eliminate the even numbers
+        //map() structure will do the mathematics operation
     }
 
 
@@ -124,6 +132,10 @@ public class LambdaFP01 {
         Integer sum= list.stream().distinct().filter(t -> t%2==0).map(t-> t*t).reduce(0, (t, u)-> t+u );
 
         System.out.println(sum);
+        //0 stands for sum container; t and u the values that Java will add(square of the unique even numbers)
+        // reduce() method will take the all squares and reduce them into a one single sum value
+        //reduce() method has created a container I will take the elements in it (0 is the starting point for my integers)
+        // this process will return me sum container
     }
 
     //6) Create a method to calculate the product of the cubes of distinct even elements
@@ -148,7 +160,14 @@ public class LambdaFP01 {
         //1.way:
 
         Integer max= list.stream().distinct().reduce(Integer.MIN_VALUE, (t, u)-> t>u ? t : u);
+        //Java will take the elements one by one with the help of stream() method
+        //And then eliminate repeated ones the help of distinct() method
+        //And then compare the elements with the Min Integer Value with the help of Integer Wrapper Class Min_Value() method
+        //And then return  the greater value with the help of Ternary Structure
+        //reduce() method reduces the given elements into a single value by executing a reducer function.
+
         System.out.println(max);  //131
+
     }
     public static void getMaxElement02(List<Integer> list){
 

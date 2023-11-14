@@ -57,8 +57,9 @@ public class Lambda_StringUsage {
     }
     public static void printInUpperCase02(List<String> list){
         //2.Way:
-        list.replaceAll(String::toUpperCase);
-        System.out.println(list);
+        list.replaceAll(String::toUpperCase); //We do not have to use every time stream() method
+        System.out.println(list);             //We can use replaceAll() method from the List Interface
+
 
     }
 
@@ -95,7 +96,7 @@ public class Lambda_StringUsage {
 
         list.
                 stream().
-                sorted(Comparator.comparing(String::length).
+                sorted(Comparator.comparing(String::length).  //If we have to compare in multiple ways we use "then comparing"
                         thenComparing(t-> t.charAt(0))).
                 forEach(UtilsClass::printInTheSameLineWithASpace);
 

@@ -64,7 +64,7 @@ public class Ruuner {
         System.out.println(d.name); //Mammal
 
         Animal  e = new Cat();
-        System.out.println(e.name); //Can
+        System.out.println(e.name); //Cat
 
          /*
             1)Relationship from "parent" to "child" is called "HAS-A" Relationship

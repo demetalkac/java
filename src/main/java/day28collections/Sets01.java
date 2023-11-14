@@ -26,6 +26,11 @@ public class Sets01 {
             icin biz, elemanları önce HashSet ile depolarız sonra HashSet'i TreeSet'e cevirerek
             TreeSet'in yavas olma problemini atmıs oluruz.
 
+     Note: HashSets are data structure.
+        Note: .size();-->returns the number of elements of the set
+        Note: .clear();-->Delete all elements in set
+        Note: If you want to add an element back to the HashSet, the old one is deleted and the new one is overwritten.
+
                   ***************************
                     "HashSet"
                HashSet<String> emails = new HashSet<>();
@@ -69,6 +74,8 @@ public class Sets01 {
         emails.add(null);
         emails.add(null);
         System.out.println(emails);// [null, Apple, Fig, Mango, Apricot, Orange]
+        // If you use many elements, the order can be different in everyone because there is no rule to order the elements.
+        // It is a random order.
 
         emails.remove("Fig");
         System.out.println(emails);// [Apple, Mango, Apricot, Orange]
@@ -77,10 +84,11 @@ public class Sets01 {
         //System.out.println(emails);// []
 
         //When you use clone() method, you can make data type "Object"
-        Object emails2 = emails.clone();
+        Object emails2 = emails.clone();//if you want to get same HashSet in different container we use clone() method
         System.out.println(emails2);
 
-        HashSet<String> emails3 = (HashSet<String>) emails.clone();
+        HashSet<String> emails3 = (HashSet<String>) emails.clone(); //TypeCasting ==> explicit narrowing
+                                                                    // HashSet is the child of the object class
         System.out.println(emails3);
 
         //LinkedHashSet
@@ -90,7 +98,9 @@ public class Sets01 {
         ssn.add(345678912);
         ssn.add(456789123);
         ssn.add(null);
+
         System.out.println(ssn);//[123456789, 234567891, 345678912, 456789123]
+        //HashSet is faster than LinkedHashSet because it will take time to put elements into insertion order
 
         //TreeSet
         //1.Way: Slower
@@ -103,7 +113,7 @@ public class Sets01 {
         nums1.add(41);
         nums1.add(-5);
         //nums1.add(null);//TreeSet does not accept "null" as element
-        System.out.println(nums1);//[ -5, 5, 17, 23, 41, 67]
+        System.out.println(nums1);//[ -5, 5, 17, 23, 41, 67]  ==> Ascending order
 
         Long middle = LocalTime.now().toNanoOfDay();
         System.out.println(middle - starting);
@@ -118,7 +128,8 @@ public class Sets01 {
         nums2.add(41);
         nums2.add(-5);
 
-        Set<Integer> perfectNums = new TreeSet<>(nums2); //HashSet'i TreeSet'e cevirmek icin bu kodu yazdık.
+        Set<Integer> perfectNums = new TreeSet<>(nums2); //HashSet'i TreeSet'e cevirmek icin bu kodu yazdık. //We can use the data type from the Set Parent Class
+//      TreeSet<Integer> perfectNums = new TreeSet<>(nums2);
         System.out.println(perfectNums);//[ -5, 5, 17, 23, 41, 67]
 
         Long ending = LocalTime.now().toNanoOfDay();

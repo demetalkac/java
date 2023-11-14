@@ -8,6 +8,9 @@ public class Queues02 {
         /*
             Deque's are for storing multiple non-primitive data in the same data type
             "Deque" means "Double Ended Queue", it works successfully in FIFO and LIFO operations
+
+             Note: To be able to work ( with the last element easily
+             push()This method makes the tv unit first element , add the element at the beginning
          */
 
     public static void main(String[] args) {
@@ -31,8 +34,8 @@ public class Queues02 {
                 NullPointerException – if the specified element is null and this deque does not permit null elements
                 IllegalArgumentException – if some property of the specified element prevents it from being added to this deque
          */
-        furnitureTruck.push("TV Unit");
-        System.out.println(furnitureTruck);
+        furnitureTruck.push("TV Unit");// This method makes the tv unit first element , add the element at the beginning
+        System.out.println(furnitureTruck); //[TV Unit, Chair, Mirror, Sofa, Bed, Dining Table]
 
         /*
                 Pops an element from the stack represented by this deque.
@@ -46,10 +49,10 @@ public class Queues02 {
         System.out.println(el9);//TV Unit
         System.out.println(furnitureTruck); //[ Chair, Mirror, Sofa, Bed, Dining Table]
 
-        furnitureTruck.removeLastOccurrence("Bed");
+        furnitureTruck.removeLastOccurrence("Bed");  //last occurrence of "Bed" will be removed
         System.out.println(furnitureTruck); //[ Chair, Mirror, Sofa, Bed, Bed, Dining Table]
 
-        furnitureTruck.removeLast();
+        furnitureTruck.removeLast(); // dining table/last element will be removed
         System.out.println(furnitureTruck); //[ Chair, Mirror, Sofa, Bed, Bed ]
     }
 }

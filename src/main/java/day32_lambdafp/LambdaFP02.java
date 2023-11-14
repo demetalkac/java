@@ -24,6 +24,11 @@ public class LambdaFP02 {
         not:If Java has any method we pefer to use it,
         if Java does not have it we create the method inside Utils class and use it.
 
+   Note: We use this structure (UtilsClass::getCube)  only in Methods that we created by ourselves
+           In Java, there is no all kind of tasks. Sometimes, we need to create our own methods.
+
+           You can use your own class to create the required methods for your application. e.g.; you created "Animal" class,
+           and you have eat() in Animal class  ==> "
      */
 
     public static void main(String[] args) {

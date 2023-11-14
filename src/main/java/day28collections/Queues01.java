@@ -12,6 +12,29 @@ public class Queues01 {
            Queue<String> wareHouse = new LinkedList<>();
         1)Queue's are for storing multiple non-primitive data in the same data type
         2)Queue's are used for FIFO(First In First Out)
+        3) When you use Queue you will use constructor whether PriorityQueue Constructor or LinkedList Constructor(These are the child classes of Queue)
+
+         Queue Class:
+
+    Unlike the stack class, this class works with first-in, first-out logic, except for special cases.
+    FIFO (first in first out)
+
+    The Queue is used to insert elements at the end of the queue and removes from the beginning of the queue. It follows FIFO concept.
+    The Java Queue supports all methods of Collection interface including insertion, deletion, etc.
+    LinkedList, ArrayBlockingQueue and PriorityQueue are the most frequently used implementations.
+    If any null operation is performed on BlockingQueues, NullPointerException is thrown.
+    The Queues which are available in java.util package are Unbounded Queues.
+    The Queues which are available in java.util.concurrent package are the Bounded Queues.
+    All Queues except the Deque supports insertion and removal at the tail and head of the queue respectively.
+    The Deque support element insertion and removal at both ends.
+
+    Queue Methods:
+
+    add(element): Adds the element given in the parameter to the queue. It throws an error if the operation fails.
+    offer(element): Adds the element given in the parameter to the queue. Returns null if the operation fails.
+    poll(): Removes the element at the beginning of the queue from the queue.
+    peek(): It is used to reach the next element in the queue.
+     **
 
        - Queue interface'dır ve bu nedenle object olusturamayız.Queue olusturulurken ya LinkedList veya PriorityQueue ın constructorını kullanabiliriz.
        -Ilk giren eleman ilk kullanmamız FIFO(First In First Out) gerektiginde Queue en iyi secimdir.

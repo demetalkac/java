@@ -54,7 +54,110 @@ INTERVIEW
 * How to get the minimum and maximum values of numeric types in java
 
             System.out.println(Integer.MAX_VALUE); //
+*********************
+        // 1. equals() method: Compares two Strings, returns "boolean".
+          "Tom".equals("tom");  // ==> false
 
+          // 2. equalsIgnoreCase() method: Compares two Strings by ignoring cases, returns "boolean".
+          "Tom".equalsIgnoreCase("tom");  // ==> true
+
+          // 3. toLowerCase() method: Converts all characters in a String to lower cases, returns "String".
+          "AuGuSt".toLowerCase(); // ==> "august"
+
+          // 4. toUpperCase() method: Converts all characters in a String to upper cases, returns "String".
+          "AuGuSt".toUpperCase(); // ==> "AUGUST"
+
+          // 5. charAt() method: Gives you 'a character' in the String by using index, returns "char".
+          "Java is my love".charAt(6); // ==> 's'
+          //  0123456
+
+          // 6. length() method: Counts the characters in a String, returns "integer".
+          // Note: For last character ==> lastChar=   .length()-1
+          "Learn Java earn money".length(); // ==> 21
+          //  12345678910...21
+
+          // 7. replaceAll() method: Replaces if different characters all together (all the spaces, numeric values, alphabetical characters, symbols) in a String.
+          String name = "        Tom12      Hanks!....      ";
+          System.out.println(name.replaceAll("[^A-Za-z]", "")); // ==> TomHanks
+          //                                   (remove "[^Other than]", put nothing "" instead of removed characters)
+          //                                        alphabetical characters
+
+          System.out.println(name.replaceAll("[^0-9]", "")); // ==> 12
+          //                                   (remove "[^Other than]" , put nothing "" instead of removed characters)
+          //                                          numeric characters
+
+          // 8. replace() method: Replaces just one or two values in a String (just the letters, just the numbers)
+          String shirtPrice = "$ 12.99";
+          String shirt = shirtPrice.replace("$", "");  // ==> "12.99"
+          //                                 (just remove "$", put nothing "" instead of dollar sign)
+
+          // 9. valueOf() method: Converts "String to double" or "double to String".
+          String bookPrice = "$ 35.99";
+          String book = bookPrice.replace("$", ""); // ==> "35.99"
+
+          double bd = Double.valueOf(book); // ==> 35.99 // It is possible to operate math operation with this numeric value now.
+
+          /* 10. substring() method:
+           substring(0, 1) gives you first character everytime (like charAt(0))
+           substring(beginning index) gives you the characters from a specific index to the last index
+
+           Ali Baba        str.substring(0,1); ==> A
+           01234...        str.substring(4);   ==> Baba
+           */
+
+          String s = "I like Lion, Horse, laptop and Cat";
+          //  index   01234567  11 13   18           31
+          String lion = s.substring(7, 11); // Lion
+          String horse = s.substring(13, 18); // Horse
+          String cat = s.substring(31); // Cat
+
+          // 11. split() method:
+
+          String names = "Tom Hanks ";
+
+          System.out.println(names.split(" ")[1]); // Hanks
+          //                 split and print the name after 1.space
+          System.out.println(names.split("o")[1]); // m Hanks
+          //                 split and print the name after 1. "o"
+
+          /* 12. indexOf() method: Gives you the index of first occurrence of a specific character (just focuses first character).
+
+          Note 1: indexOf() method can be used with "char" and "String" data types
+          str.indexOf('a') or s.indexOf("Java");
+
+          Note 2: If you use String inside the indexOf(), it will return the index of the first character.
+          s.indexOf("Java"); ==> "J"
+
+          Note 3: indexOf() method returns "-1" for non-existing character
+          s.indexOf('x')==-1   ==>  There is no 'x'
+           */
+
+          String str = "I want to learn Java";
+          //      index 0123  (just focus first 'a')
+          int idx = str.indexOf('a');
+          System.out.println(idx + 1); //4
+          //       order of the number= index+1
+
+
+          // 13. lastIndexOf() method: index of first character of the last occurrence
+
+          String r = "I like to study Java, learn Java, earn money, Java is easy.";
+          // index    01234........................................46
+          int f = r.lastIndexOf("Java"); // 46
+
+          String m = "Hello";
+          /*          01234
+                       indexOf()           lastIndexOf()
+                  H       0                       0
+                  e       1                       1
+                  l       2                       3
+                  o       4                       4
+
+                  m.indexOf('l')==-1                  ==>  The character does not exist
+                  m.indexOf('l')==m.lastIndexOf('l')   ==>  The character is unique
+                  m.indexOf('l')!=m.lastIndexOf('l')   ==>  The character is not unique
+           */
+************************************************
 2-)  SWİTCH
    Note: "break" keyword is used in "switch" statement to stop next case executions.
          "break" keyword takes us to the outside the switch statement
@@ -498,7 +601,7 @@ NOT: "default"  da “package privide” da denir.
      - Parent Class object'ler Child Cass'dan method ve variable'ları kullanamaz.
         ---
             "method ve variable"
-     - "privede" method ve variable'lar Child Class'lar tarafından kullanılamazlar(yani prived olanlar inheritance edilemez)
+     - "private" method ve variable'lar Child Class'lar tarafından kullanılamazlar(yani private olanlar inheritance edilemez)
      -"protected" method ve variable'lar Child Class'lar tarafından kullanılabilirler(yani protected olanlar inheritance edilebilirler)
      -"public" method ve variable'lar Child Class'lar tarafından kullanılabilirler(yani public olanlar inheritance edilebilirler)
     -"default" method ve variable'lar aynı package'deki Child Class'lar tarafından kullanılabilirler(yani default olanlar inheritance edilebilirler)
@@ -607,8 +710,8 @@ NOT: "default"  da “package privide” da denir.
        5-"this" keyword "bu class" anlamındadır.örnegin "this.price" demek bu class'daki "price" isimli variable demektir
        "this.price" syntax'i construclorın icinde kullanılır.
 
-       6- Constuctor kullanarak variable'lar üzerinde yaptıgınız degisimler sadece Object üzerindeki variable'ların degerlerini degistirir.
-       Class daki variable degerlerini degistirmez.
+       6- Constuctor kullanarak variable'lar üzerinde yaptıgınız degisimler sadece Object üzerindeki
+       variable'ların degerlerini degistirir. Class daki variable degerlerini degistirmez.
 
        /*
                    1)When you try to access a "variable" by using an object in inheritance,
@@ -652,7 +755,7 @@ NOT: "default"  da “package privide” da denir.
               return type of the "Overriding Method" must be "void"
             8)When you do "Method Overriding", return type of the "Overriding Method" can be same or the child
               of the return type of the "Overridden Method"
-              From child return type to parent type you must have "IS-A" Relationship
+               From child return type to parent type you must have "IS-A" Relationship
             9)Between the Wrapper Classes, Java did not create "Parent-Child Relationship", therefore
               between the Wrapper Classes there is no "IS-A" relationship. If there is no "IS-A" Relationship
               you cannot change the return types in "Method Overriding"
@@ -734,9 +837,9 @@ NOT: "default"  da “package privide” da denir.
                   i-Overloading icin "inheritance" gerekmez fakat Overriding icin gerekir.
                   ii-"private" methodlar Overload edilebilir, Override edilemezler
                   iii-"final" methodlar Overload edilebilir, Override edilemezler
-                  İV- "Overloading static polymorphism" olara, "Overriding" "dynamic polymorphism" olarak adlandırılır.
+                  İV- "Overloading static polymorphism" olarak, "Overriding" "dynamic polymorphism" olarak adlandırılır.
                      Cünkü static methodlar Overload edilebilir, override edlemezler.
-                  v-  "Overloading" de method signnature degisir ama "Overriding1 method signature a dokunmaz.
+                  v-  "Overloading" de method signnature degisir ama "Overriding method signature a dokunmaz.
 
              */
                       /*
@@ -846,7 +949,6 @@ NOT: "default"  da “package privide” da denir.
                 public void setSuccessful(boolean successful) { this.successful = successful; }
            -set method parametre ile calısır.Parametre data tipinde ve isminde olur, isim aynı olmak zorunda dagil ama genel kullanım odur.
             private double stdGpa = 3.8; => "double" oldugu icin set methodunun data type da "double" olur =>   public void setStdGpa(double gpa){ this.stdGpa = gpa; }
-
            -Baska bi class'dan obje olusturunca :Ve objeyi kullanarak variable'ları cagırdıgımızda class icindekiler okur
               Ama olusturdugumuz obje ile variable'larda degisiklik yapmak istedigimizde asıl class'dakiler ile degil
               olusturdugumuz obje üzerinde degisiklik yapar, asıl clastaki variablelar degismez.
@@ -884,12 +986,12 @@ NOT: "default"  da “package privide” da denir.
                   ---------
        -Parent class'a koydugumuz methodun body'i hicbir child tarafından kullanılmayacaksa yazmamız gereksizdir.
        -Method var ama body'si yoksa bunlara "abstract method" denir.
-       *Abstac Method yapmak icin: 1- Methodun body'sini silmeliyia
+       *Abstac Method yapmak icin: 1- Methodun body'sini silmeliyiz
                                    2- access modifiar'dan sonra "abstract" keyword'unu yamalıyız.
                                    3- "aabstact method"'lar "abstract class"'lar icinde olmalıdır.
 
        *abstract classlarda "Concrete Methods" ve  "Abstract Methods" olabilir.
-         "Concrete Methods" body'i olan classlara denir.
+         "Concrete Methods" body'si olan classlara denir.
        *Parent'a abstract yapınca "abstract methodlar" var ise:
        i) child clss'ı abstract yapılmalı:ör:public abstract class Mammal extends Animal{
         VEYA
@@ -905,8 +1007,6 @@ NOT: "default"  da “package privide” da denir.
             Because "Overriding abstract methods from parent" is mandatory just for "Concrete Classes"
 
             "Overriding abstract methods from parent" is NOT mandatory for abstract classes
-
-
             If you want you can ovverride abstract methods from parent Animal to Mammal, it is optional.
 
              */
@@ -941,7 +1041,7 @@ NOT: "default"  da “package privide” da denir.
            "abstract class"larda "abstract method" ve "concrete method" bir arada kullanıldıgı icin "abstract class"lara
            "fully abstraction" denmez, yani yarım abstacttır.
 
-           * To create "concrete method" in an interface you have 2 potions
+           * To create "concrete method" in an interface you have 2 options
               i) Use "default" keyword     ii) Use "static" keyword
            - interface'lerde normalde  "concrete method(body'i olan)" koymamıs java ama developerların istegi üzerine koymus
              ama "defoult" keywordu kullanmak sartıyla, kullanmassak hata verir. Bu istisnai bir durumdur.
@@ -958,7 +1058,7 @@ NOT: "default"  da “package privide” da denir.
 
               -interface'ler bir yapılacak isler listesidir.(To do list)
                     "method"
-             *"multible parent interface" kullandıgınızda aynı method isii ile birden fazla method olusturulunca
+             *"multible parent interface" kullandıgınızda aynı method ismi ile birden fazla method olusturulunca
                rutern type'ları aynı olunca , java sıkıntı yapmaz.
                ör: public void run(); farklı parentlerde aynı method kullanılınca child da sıkıntı olmaz.
 
@@ -969,11 +1069,11 @@ NOT: "default"  da “package privide” da denir.
                 isteyince sorun cıkar. Onedenle parentler de aynı isim aynı return type ile method olmalı.
              --
                     "variable"
-             *iterface'lerdeki tüm variable'lar otomatik olarak(defoult) "public"tir.
-             *iterface'lerdeki tüm variable'lar otomatik olarak(defoult) "final"tir.Olusturdugumuz variable'la deger ataması
+             *interface'lerdeki tüm variable'lar otomatik olarak(default) "public"tir.
+             *interface'lerdeki tüm variable'lar otomatik olarak(default) "final"tir.Olusturdugumuz variable'la deger ataması
              yapmazsak sikayet eder java degr ataması yapınca sikayet ortadan kalkar, "final" oldugunu burdan anlıyoruz(atanan deger degistirilemezdi finalda).
              ör: int price = 2300;
-             *iterface'lerdeki tüm variable'lar otomatik olarak(defoult) "static"tir.
+             *interface'lerdeki tüm variable'lar otomatik olarak(default) "static"tir.
 
             note:public static final int price = 2300; seklinde de yazabiliriz ama intellj "public static final" kısmını silik yazar yani yazmasanda olur demektir.
 
@@ -1054,7 +1154,8 @@ NOT: "default"  da “package privide” da denir.
                     3)"final" keyword can be used for classes
                       "final classes" cannot have child classes
 
-                Note: "abstract classes" have something to do for child classes, if there is no child class, having "to do list" is not sensible.
+                Note: "abstract classes" have something to do for child classes, if there is no child class, having
+                      "to do list" is not sensible.
                       "final classes" cannot have child classes, therefore Java does not allow to make an abstract class final.
 
                 Note:  "final method" body will be under protection by Java, because it should not be updated.
@@ -1090,14 +1191,14 @@ NOT: "default"  da “package privide” da denir.
                     kendisi icin yazdıgı, teknik olmayan mesajdır.
                8)   e.printStackTrace();//Gives detailed technical message about the Exception.Detaylı
                     "log(application'nın adım adım ne yaptıgını gösterir)" icin. Bunu kullanırken sout icine
-                    yazmaya gerek yok,cünkü kendi icinde print var. Genelde developurlar bunu kullanırlar.
+                    yazmaya gerek yok,cünkü kendi icinde print var. Genelde developerlar bunu kullanırlar.
                9) System.err.println("A problem occurred in array indexes"); Bu ise kendi mesajımı konsolda renkli yazdırı,
                    renkli gösterir. Hata olan yeri daha rahat görmek icin kullanılır.
                10) try icindeki kod düzgün calısırsa "catch" kısmı calısmaz.
 
                11- Aralarında "parent-child" relationship olan Exception Class'ları multible catch'lerle kullanmak isterseniz
                   "child" olan önce kullanımalıdır, aksi takdirde hata verir.
-               12-  Aralarında "parent-child" relationship olan Exception Class'ları multible catch'lerle kullanmak isterseniz
+               12-  Aralarında "parent-child" relationship olmayan Exception Class'ları multible catch'lerle kullanmak isterseniz
                     sıralamanın bi önemi yoktur.
 
 
@@ -1118,8 +1219,10 @@ NOT: "default"  da “package privide” da denir.
                1-"AritmeticExeption" :matematik ile ilgili yapılan yanlıslıkları kapsar. Bunu if-else ile de cözebiliriz fakat
                                       matematik kurallarını bilmemize gerek yok bu nedenle exceptionlarda kullanımı tavsiye edilmez
                                       onun yerine try-chatch kullanırız.Handle Exception by using try-catch block
+                                      "A number cannot be divided by zero"
                2-ArrayIndexOutOfBoundsException : Bir arrayde length'inin bir eksigini index olarak alabiliriz.
-                                                  Ama length-1 den fazla bir rakam girersek hata alırız. Yani arrayin uzunlugunu asarsa istedigimiz hata verir.
+                                                  Ama length-1 den fazla bir rakam girersek hata alırız.
+                                                  Yani arrayin uzunlugunu asarsa istedigimiz hata verir.
 
                3-NullPointerException: If  you use "length()" method with "null" you will get NullPointerException
                  int r3 = getNumOfChars(null);
@@ -1213,7 +1316,96 @@ NOT: "default"  da “package privide” da denir.
                When you "extend" to "RuntimeException Class",your "Custom Exception" will be "RuntimeException"
                public class IllegalNameException extends RuntimeException{
                }
+*********
+  Java.io paketinin FileInputStream sinifi,
+   dosyalardan verileri (bayt cinsinden) okumak icin kullanilir.
+   InputStream soyut (Abstract) sinifini miras alir.
+   Java'da kontrol altına alınabilen hatalara Exception ismi verilir.
 
+   Exception, program çalıştığı esnada ortaya çıkan, beklenmeyen ve öngörülemeyen hatalara verilen isimdir. Bu hatalar, program akışını sonlandırarak normal bir biçimde çalışmasına mani olur. Exception'ları Error dediğimiz diğer hatalardan ayıran en büyük özellikleri, handle edilebilmeleridir. Yani bu tür hatalar, programcılar tarafından belirli kodlarla idare edilebilir ve kontrol altına alınabilirler. Bu da programın belirlenen senaryolarla çalışmasına devam ettirmesini mümkün kılar.
+
+   Java'da bir exception durumu oluştuğunda, sistem bir  exception objesi oluşturur.
+   Bu obje, yaşanan hata ile ilgili detaylı bilgiler içerir.
+   Bu bilgiler arasında, exception ismi ve açıklaması gibi bilgiler yer alır.
+   Java'da bir exception çok farklı sebeplerden ötürü ortaya çıkabilir. Bu sebepler arasında,
+   Kullanıcı tarafından girilen hatalı veri
+   İnternet kesintileri
+   Kod hataları
+   Erişilemeyen veriler
+   Cihaz ve bellek ile ilgili problemler vs. vardır.
+
+   Exception Türleri
+   Java'daki tüm Exception ve Error türleri, Throwable isimli parent class'ın
+   subclass'ları konumundadır. Exception class'ının altında ise iki ana alt sınıf bulunur.
+   Bu sınıflar Checked Exception ve Unchecked Exception'lardır.
+
+   Checked Exception
+   Aynı zamanda Compile-Time Exception olarak isimlendirilen
+   Checked Exception'lar, compile-time sırasında compiler tarafından check edilen,
+   kontrol edilen exception'lardır. Yani bu hatalar, kod yazıldığı esnada tespit edilir ve
+   programcıya bildirilir. Programcının bu tür hataları gözardı etmesi mümkün değildir.
+
+   Unchecked Exception
+   Beklenmeyen, öngörülemeyen, program çalışmadan kontrol edilemeyen
+   exception'lara Unchecked Exception ismi verilir. Bu tür exception'lar
+   runtime exception olarak da isimlendirilirler. Bunun sebebi, bu hataların
+   compile-time'da değil runtime'da yani program çalıştığı esnada ortaya çıkmasıdır.
+   Exception handling,  hataların, programcı tarafından kontrol edilmesi, kontrol altına alınmasıdır.
+   Java'da bir exception'ın handle edilmesinde try-catch-finally, throw-throws keyword'leri kullanılır.
+   Bu kelimelerin izahları şu şekildedir.
+
+   Kelime    Tanım
+   try{} "try" anahtar kelimesi, yapılacak işlemin ekleneceği kod blokuna verilen isimdir.
+   try tek başına kullanılamaz. catch veya finally ona eslik etmek durumundadır.
+   catch(){} "catch", ortaya çıkabilecek hatayı yakalamak icin kullanılır. catch parantezine
+   exception class ismi referans obje adı, kod blok'unun içerisine ise, exception durumunda çalışacak kodlar yazılır.
+   finally{} Exception olsa da olmasa da çalıstırılacak olan kodların yazıldığı bölümüdür. Her iki durumda da muhakkak çalışır.
+   throw Bir exception fırlatmak için kullanılır.
+   throws    Bir veya birden fazla exception'ı bildirmek için metod signature'da kullanılır.
+  ======================================================
+   En Sık Karşılaşılan RunTime (Unchecked) Exception'lar
+  ======================================================
+
+   ArithmeticException: Java matematiksel işlemler ile ilgili muhtemel tum istisna
+   ve hataları ArithmeticException class'ına koymuştur. Dolayısı ile bir sayının sıfıra
+   bölünmesi gibi matematiksel hatalarda, ArithmeticException fırlatılır.
+   NullPointerException: Java'da en çok karşılaşılan exception türlerinden bir tanesidir.
+    Örneğin null bir değer sahip bir string'in length'i ölçmeye çalışan kod, NullPointerException verecektir.
+   ArrayIndexOutOfBoundsException: Array veya List'te bulunmayan bir index için işlem
+   yapılmak istendiğinde Java ArrayIndexOutOfBoundsException hatası verir.
+   NumberFormatException: Sayı formatında olmayan bir String'i sayıya dönüştürmek istediğimiz
+   Java, NumberFormatException hatası verir.
+   StringIndexOutOfBoundsException: Eğer bir String'den character/ler alırken olmayan bir
+    index kullanılırsa, StringIndexOutOfBoundsException hatası verilir.
+   IllegalArgumentException: Genellikle throw yapmak için kullanılır. Geçersiz bir argüman
+   girildiğinde, karşı tarafa IllegalArgumentException gönderilir. Örneğin yaş bilgisi negatif
+   olarak girildiğinde, bu exception throw edilebilir.
+   Bunların dışında, ClassCastException, DateTimeException, ArrayStoreException,
+    UnsupportedOperationException, NoSuchElementException, ConcurrentModificationException
+    gibi farklı exception'lar da mevcuttur.
+
+   Exception Metodları
+   Exeption handle edilirken kullanılan bazı metodlar vardır. Bu metodlar, referans obje üzerinden kullanılır.
+   printStackTrace(): Bu metod, exception bilgilerini, oldukça detaylı bir şekilde ekrana yazdırır.
+   Herhangi bir print işlemi yapmaya gerek yoktur. Zaten kendisi bir print işlemi yapar.
+   toString(): Bu metod, exception ismini ve exception'un sebebini return eder.
+   Ekrana yazdırmak için print edilmesi gerekir.
+   getMessage(): Yalnızca exception'un açıklamasını return eder. print edilmesi gerekir.
+
+   Bir dosya giris akisi olusturmak icin once
+   java.io.FileInputStream paketini ice aktarmaliyiz.
+   Paketi ice aktardiktan sonra, Java'da bir dosya
+   giris akisini nasil olusturabilecegimizi burada bulabilirsiniz.
+
+    FileInputStream Metotlari:
+    FileInputStream sinifina ait metotlar :
+   1) read() : Dosyadan tek baytlik veri okur.
+   2) read(byte[] array) : dosyadan verileri bayt
+      cinsinde okur ve belirtilen dizide depolar
+   3) available() ==> Kullanilabilir byte sayisi
+   4) skip() ==> Belirtilen bayt sayisini atlamak
+      icin skip () yontemini kullanabiliriz.***
+      ************
 
    35-)   "COLLECTION"
            Collections are for storing multiple data in the same data type.
@@ -1229,7 +1421,7 @@ NOT: "default"  da “package privide” da denir.
                     Bir okuldaki ögrenci isimleri
              2-Set: Coklu ama tekrarsız data depolamak istedigimizde ihtiyac duyerız.
                    Bir okuldaki ögrenci id'lerini depolamak icin
-             3-Queue:FIFO veya LIFE gerektiginde kullanırız.
+             3-Queue:FIFO veya LIFO gerektiginde kullanırız.
                   Bir bankada islem yapma sırasını bekleyen müsterileri sıralamak icin
 
                        ----
@@ -1282,7 +1474,7 @@ NOT: "default"  da “package privide” da denir.
          9) pop() method ilk elementi siler ve bize sildigimiz elementi verir.Bu method removeFirst() methodu ile aynı isi yapar.
                 Eger list bos ise(emty) NoSuchElementException atar.
          10) peek() methodu ilk elemanı verir ve elemanı silmez listten. Eger list bos(emty) ise "null" döndürür.
-         11) poll() methodu işlk elementi verir ve listten ilk elemanı siler. pop() methodundan farkı ise; list bos ise exception
+         11) poll() methodu ilk elementi verir ve listten ilk elemanı siler. pop() methodundan farkı ise; list bos ise exception
                  vermez "null" verir.
 
          12) element() methodu: first elementi verir ve list'ten silmez. Eger list bos ise "NoSuchElementException" exception atar.
@@ -1319,7 +1511,7 @@ NOT: "default"  da “package privide” da denir.
                     "LinkedHashSet"
              LinkedHashSet<Integer> ssn = new LinkedHashSet<>();
     -LinkedHashSet'ler elemanları ekleme sırasına(Insertion Order) göre yerlestirirler.
-    -LinkedHashSet elemanları sıraşlamada zaman harcadıgı icin HashSet'lere göre yavas caalısırlar
+    -LinkedHashSet elemanları sıralamada zaman harcadıgı icin HashSet'lere göre yavas calısırlar
 
                      ***
                   "TreeSet"
@@ -1338,6 +1530,12 @@ NOT: "default"  da “package privide” da denir.
       note: Tekrarsız elemanları natural order da depolamak icin TreeSet kullanmak mantıklıdır ama TreeSet ler cook yavas calıstıgı
             icin biz, elemanları önce HashSet ile depolarız sonra HashSet'i TreeSet'e cevirerek
             TreeSet'in yavas olma problemini atmıs oluruz.
+
+       Note: HashSets are data structure.
+               Note: .size();-->returns the number of elements of the set
+               Note: .clear();-->Delete all elements in set
+               Note: If you want to add an element back to the HashSet, the old one is deleted and the new one is overwritten.
+
 
         //1.Way: Slower
         Long starting = LocalTime.now().toNanoOfDay();
@@ -1371,11 +1569,75 @@ NOT: "default"  da “package privide” da denir.
         System.out.println("2.Way: " + (ending-middle));   //0 bir nanosecenttan az oldugu icin 0 verdi cok hızlı.
     }
  *************************************************************************************
+
+    /*
+       HashSet
+
+   1) It consists of unique elements,
+       an element can be used only once in Sets. no duplicate elements
+   2) If you want to add an element back to the HashSet,
+       the old one is deleted and the new one is overwritten.
+   3)HashSets are the fastest among Sets.
+       The order in which the values are entered is not taken into account.
+   4) HashSet can use "null" object as element.
+               However, if you want to add multiple null values to a HashSet,
+       there will be only one null value.
+               LinkedHashset :
+               1) They do not accept repeated elements. They arrange the elements according to the insertion order.
+    2) LinkedHashSet runs slower than HashSet.
+    3) LinkedHashSet can use "null" object as element.
+   4) They are fast in adding and removing operations.
+       TreeSet :
+               1) TreeSet does not accept repeated elements, because it is Set.
+   2) Arranges the elements according to natural Order (alphabetical if String, smallest to largest).
+               3) TreeSet is the slowest of the sets. That's why you should be careful when using TreeSet...
+               4)TRICK :TreeSet "null" object cannot be used as an element.
+       Set Methods:
+               .add(element);-->Adds element to Set
+               .addAll(collection);-->adds all the elements of the desired collection
+               .contains(element);-->freezes true if the desired element is in sett, false otherwise.
+               .containsAll(collection);-->freezes true if all of the requested collection exists in the searched set, false otherwise
+               .remove(element);-->removes and freezes true if the desired element is found, false if not found
+               .removeAll(collection);-->removes all elements of the requested collection if it finds it and freezes true, if not found false returns
+               .equlas(set2);--> freezes true if all elements are the same as the requested set2, false otherwise
+               .retainAll(collection1);-->Deletes all elements except the elements of collection1, true if deleted, false otherwise (returns the intersecting common elements.)
+               .clear();-->Delete all elements in sett
+               .isEmpty();-->Freezes true if the set has no elements, false if any
+               .size();-->returns the number of elements of the set
+               .clone();--> when you use clone method, you can make data type "Object"
+
+        */
+   ********************************************************
+
+
                           C- "QUEUE"
                  "Queue"
            Queue<String> wareHouse = new LinkedList<>();
         1)Queue's are for storing multiple non-primitive data in the same data type
         2)Queue's are used for FIFO(First In First Out)
+        3) When you use Queue you will use constructor whether PriorityQueue Constructor or LinkedList Constructor(These are the child classes of Queue)
+
+         Queue Class:
+
+    Unlike the stack class, this class works with first-in, first-out logic, except for special cases.
+    FIFO (first in first out)
+
+    The Queue is used to insert elements at the end of the queue and removes from the beginning of the queue. It follows FIFO concept.
+    The Java Queue supports all methods of Collection interface including insertion, deletion, etc.
+    LinkedList, ArrayBlockingQueue and PriorityQueue are the most frequently used implementations.
+    If any null operation is performed on BlockingQueues, NullPointerException is thrown.
+    The Queues which are available in java.util package are Unbounded Queues.
+    The Queues which are available in java.util.concurrent package are the Bounded Queues.
+    All Queues except the Deque supports insertion and removal at the tail and head of the queue respectively.
+    The Deque support element insertion and removal at both ends.
+
+    Queue Methods:
+
+    add(element): Adds the element given in the parameter to the queue. It throws an error if the operation fails.
+    offer(element): Adds the element given in the parameter to the queue. Returns null if the operation fails.
+    poll(): Removes the element at the beginning of the queue from the queue.
+    peek(): It is used to reach the next element in the queue.
+     **
 
        - Queue interface'dır ve bu nedenle object olusturamayız.Queue olusturulurken ya LinkedList veya PriorityQueue ın constructorını kullanabiliriz.
        -Ilk giren eleman ilk kullanmamız FIFO(First In First Out) gerektiginde Queue en iyi secimdir.
@@ -1391,9 +1653,17 @@ NOT: "default"  da “package privide” da denir.
        -Yani iki uclu queue demektir.FIFO ve LIFO gerektiginde beraber kullanılır.
        -removeLastOccurrence(), removeLast(), addFirst(), addLast() gibi ilk ve sona eleman ekleme-silme gibi bircok methoda sahiptir
 
+       Deque's are for storing multiple non-primitive data in the same data type
+       "Deque" means "Double Ended Queue", it works successfully in FIFO and LIFO operations
+
+       Note: To be able to work ( with the last element easily
+       push()This method makes the tv unit first element , add the element at the beginning
+
+
                      "PriorityQueue"
                PriorityQueue<String> myQueue = new PriorityQueue<>();
         -Java kendine göre bir kural belirler ve ona göre elementleri sıraya koyar.Yani yazdıgımız sıraya göre veya alfabetik
          sıraya göre bir sıra yapmıyor, ama java bir sıra yapıyor fakat kendine göre bir sıra yapıp elemanları yerlestiriyor.
         -Biz istersek sıralamayı belirleyebiliriz.
 
+**********************************

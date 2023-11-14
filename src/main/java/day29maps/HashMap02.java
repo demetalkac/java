@@ -23,5 +23,9 @@ public class HashMap02 {
         coursePrices.put("Full Stack Automation Engineer", 5800.00);
         coursePrices.put("SalesForce Development", 4500.00);
 
+//How do you get hashCode?
+//        int hashCode = coursePrices.hashCode();
+//        System.out.println(hashCode);//685489871
+
     }
 }
