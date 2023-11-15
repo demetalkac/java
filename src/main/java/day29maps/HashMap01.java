@@ -46,7 +46,7 @@ public class HashMap01 {
         //Sometimes we want to work just with values(ages)
         //values() ==>
         Collection<Integer> ages = stdAges.values(); //Collection parent interface of List (ages are not unique, we will put them into Collection)
-                                                //Since the values are not unique, we cannot put hem into a set
+                                                //Since the values are not unique, we cannot put them into a set
                                                 //Sometimes values can create a List, then we can put the values into a List instead of Collection
         System.out.println(ages);//[46, 55, 48, 13]
 
