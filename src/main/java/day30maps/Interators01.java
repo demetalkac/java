@@ -47,6 +47,25 @@ public class Interators01 {
 
 
      */
+    /*
+        Iterator'lar Loop'ların yaptığı işi yapar.
+        Iteratorslar tıpkı loop'larda olduğu gibi elemanı alarak işleme sokar.
+        Javanın Iterator'ları ortaya çıkarma sebebi infinit Loop riskini bitirmektirr.
+
+        Iterator'larda sonsuz loop yoktur.
+        Iterator'lar Java tarafından sonradan oluşturulmuşlardır.
+        Loop'ların yaptıkları bütün işlemleri yapabilirler.
+        Looplar ile iteratorlarin performans farki yoktur ama Iteratorlar eleman silme ve update etmede daha basarilidirlar
+        eger bir collectionda eleman silme ve update islemi yapcaksan loop kullanmamaliyiz
+iki tip iterator var
+        i) Iterator : Sadece elemanlari remove edebilirsiniz.
+                      Sadece soldan saga calisir yani tek yonludur(for-each loop gibi.)
+                      index yok
+
+        ii)ListIterator : Eleman "remove etme", "update etme" ve "add" yapabilirsiniz
+                          Hem sol'dan saga hem de sag'dan sola calisabilir yani cift yonludur
+                          sadece listlerde kullanilir
+         */
 
     public static void main(String[] args) {
 

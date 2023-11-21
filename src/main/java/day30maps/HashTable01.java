@@ -45,11 +45,11 @@ public class HashTable01 {
         //to print the information on the console we should go to Student class and convert the references into information
         // with the help of "toString"
 
-
         //How to see a detail about the students like Tom Hank's age
         Students tomInfo = studentsInfo.get("Tom Hanks");
         System.out.println(tomInfo.age);
         System.out.println(tomInfo.nationality);
+        
 
 
         //It will print the key and references of the information to print the information on the console

@@ -39,7 +39,7 @@ public class TreeMap01 {
         System.out.println(keysInDescendingOrder);// [USA, Turkey, Germany, Afghanistan]
 
         NavigableMap<String, Integer> mapInDescendingOrder =  countryPopulations.descendingMap();
-        System.out.println(mapInDescendingOrder);
+        System.out.println(mapInDescendingOrder);//{USA=400000000, Turkey=81000000, Germany=85000000, Afghanistan=30000000}
 
         Map.Entry<String,Integer> def = countryPopulations.floorEntry("Germany");
         System.out.println(def);//Germany=85000000
