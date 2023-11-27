@@ -98,6 +98,7 @@ public class J05Enum02 {
     }
 
     public static void main(String[] args) {
+  //      J04Enum01 enm = J04Enum01.JANUARY;
 
         //How we use the values we created in enum ?
         //We create our object
